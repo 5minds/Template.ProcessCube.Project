@@ -1,6 +1,6 @@
 import React from 'react';
 
-import {CustomFormProps} from '../../renderer/CustomFormsRenderer';
+import { CustomFormProps } from '../DialogRenderer';
 
 import './TestComponent.css';
 

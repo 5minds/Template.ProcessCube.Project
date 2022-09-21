@@ -40,7 +40,7 @@ export class CustomFormsRenderer extends React.Component<CustomFormRendererProps
   };
 
   private components: CustomFormsComponentDict = {
-    TestComponent,
+    testCustomForm: TestComponent,
   };
 
   private customFormService: CustomFormService | null = null;

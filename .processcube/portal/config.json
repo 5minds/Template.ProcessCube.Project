@@ -13,10 +13,7 @@
     "include": ["Zahlenraten"],
     "settings": {
       "Zahlenraten": {
-        "title": "Zahlenraten",
-        "startButtonTitles": {
-          "StartEvent_1": "Start"
-        }
+        "title": "Zahlenraten"
       }
     }
   },
@@ -25,7 +22,7 @@
       "title": "Start TestDialog",
       "url": "http://localhost:3000",
       "startButtonTitle": "Open dialog",
-      "id": "TestDialog"
+      "id": "TestStartDialog"
     }
   },
   "translationFolder": "/etc/portal/config/translation",

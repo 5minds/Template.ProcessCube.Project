@@ -22,37 +22,33 @@ services:
       - 8083:8083
 
   app:
-    image: 5minds/education-project-BeginnersCourseTemplate
+    image: 5minds/beginnerscoursetemplate
     build:
       context: ./
-      dockerfile: apps/BeginnersCourseTemplate/Dockerfile
+      dockerfile: apps/BeginnersCourseTemplate_Vorlage/Dockerfile
     volumes:
-      - ./apps/BeginnersCourseTemplate/Properties/:/apps/BeginnersCourseTemplate/Properties/
-      - ./apps/BeginnersCourseTemplate/EnvironmentSettings/appsettings.${APPENVIRONMENT:-Production}.json:/apps/BeginnersCourseTemplate/appsettings.json
-      - ./apps/BeginnersCourseTemplate/Program.cs:/apps/BeginnersCourseTemplate/Program.cs
-      - ./apps/BeginnersCourseTemplate/DbEnsureCreator.cs:/apps/BeginnersCourseTemplate/DbEnsureCreator.cs
-      - ./apps/BeginnersCourseTemplate/Database/:/apps/BeginnersCourseTemplate/Database/
-      - ./apps/BeginnersCourseTemplate/Laptop/:/apps/BeginnersCourseTemplate/Laptop/
-      - ./apps/BeginnersCourseTemplate/LeasingContract/:/apps/BeginnersCourseTemplate/LeasingContract/
-      - ./apps/BeginnersCourseTemplate/Worker/:/apps/BeginnersCourseTemplate/Worker/
+      - ./apps/BeginnersCourseTemplate_Vorlage/Properties/:/apps/BeginnersCourseTemplate_Vorlage/Properties/
+      - ./apps/BeginnersCourseTemplate_Vorlage/EnvironmentSettings/appsettings.${APPENVIRONMENT:-Production}.json:/apps/BeginnersCourseTemplate_Vorlage/appsettings.json
+      - ./apps/BeginnersCourseTemplate_Vorlage/Program.cs:/apps/BeginnersCourseTemplate_Vorlage/Program.cs
+      - ./apps/BeginnersCourseTemplate_Vorlage/Worker/:/apps/BeginnersCourseTemplate_Vorlage/Worker/
     ports:
       - 5111:5111
-    working_dir: /apps/BeginnersCourseTemplate
+    working_dir: /apps/BeginnersCourseTemplate_Vorlage
     environment:
       - APPSETTINGS=${APPSETTINGS}
     command: dotnet run
 
   frontend:
-    image: 5minds/education-project-BeginnersCourseTemplate
+    image: 5minds/beginnerscoursetemplate
     volumes:
-      - ./apps/BeginnersCourseTemplate/frontend/public/:/apps/BeginnersCourseTemplate/frontend/public/
-      - ./apps/BeginnersCourseTemplate/frontend/src/:/apps/BeginnersCourseTemplate/frontend/src/
-      - ./apps/BeginnersCourseTemplate/frontend/.env:/apps/BeginnersCourseTemplate/frontend/.env
-      - ./apps/BeginnersCourseTemplate/frontend/.env.development:/apps/BeginnersCourseTemplate/frontend/.env.development
-      - ./apps/BeginnersCourseTemplate/frontend/aspnetcore-https.js:/apps/BeginnersCourseTemplate/frontend/aspnetcore-https.js
-      - ./apps/BeginnersCourseTemplate/frontend/aspnetcore-react.js:/apps/BeginnersCourseTemplate/frontend/aspnetcore-react.js
-      - ./apps/BeginnersCourseTemplate/frontend/tsconfig.json:/apps/BeginnersCourseTemplate/frontend/tsconfig.json
-    working_dir: /apps/BeginnersCourseTemplate/frontend/
+      - ./apps/BeginnersCourseTemplate_Vorlage/frontend/public/:/apps/BeginnersCourseTemplate_Vorlage/frontend/public/
+      - ./apps/BeginnersCourseTemplate_Vorlage/frontend/src/:/apps/BeginnersCourseTemplate_Vorlage/frontend/src/
+      - ./apps/BeginnersCourseTemplate_Vorlage/frontend/.env:/apps/BeginnersCourseTemplate_Vorlage/frontend/.env
+      - ./apps/BeginnersCourseTemplate_Vorlage/frontend/.env.development:/apps/BeginnersCourseTemplate_Vorlage/frontend/.env.development
+      - ./apps/BeginnersCourseTemplate_Vorlage/frontend/aspnetcore-https.js:/apps/BeginnersCourseTemplate_Vorlage/frontend/aspnetcore-https.js
+      - ./apps/BeginnersCourseTemplate_Vorlage/frontend/aspnetcore-react.js:/apps/BeginnersCourseTemplate_Vorlage/frontend/aspnetcore-react.js
+      - ./apps/BeginnersCourseTemplate_Vorlage/frontend/tsconfig.json:/apps/BeginnersCourseTemplate_Vorlage/frontend/tsconfig.json
+    working_dir: /apps/BeginnersCourseTemplate_Vorlage/frontend/
     command: npm start
     ports:
       - 3000:3000
