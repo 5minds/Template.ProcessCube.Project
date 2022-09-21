@@ -1,0 +1,12 @@
+{
+    "webAPIConfig": {
+      "graphQlHttpApiUrl": "http://localhost:5111/graphql",
+      "graphQlWsApiUrl": "ws://localhost:5111/graphql"
+    },
+    "processEngineConfig": {
+      "processModelId": "selbstregistrierung"
+    },
+    "atlasEngineClientConfig": {
+      "atlasEngineUri": "http://localhost:8000"
+    }
+}

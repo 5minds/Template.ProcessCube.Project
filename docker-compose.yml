@@ -1,0 +1,59 @@
+version: "3.5"
+services:
+  engine:
+    image: 5minds/engine:13.4.6
+    ports:
+      - 8000:8000
+    volumes:
+      - ./.processcube/engine/config/config.json:/etc/engine/config/config.json:ro
+      - ./.processcube/engine/db:/root/.config/AtlasEngineFullstackServer/databases:rw
+      - ./processes:/processes:ro
+    command: --seed-dir=/processes --port 8000
+
+  portal:
+    image: 5minds/portal:3.9.0-beta.1
+    volumes:
+      - ./.processcube/portal/theme.css:/etc/portal/config/theme.css:ro
+      - ./.processcube/portal/config.json:/etc/portal/config/config.json:ro
+      - ./.processcube/portal/assets:/etc/portal/config/assets:ro
+      - ./.processcube/portal/translation:/etc/portal/config/translation:ro
+    command: "--config-path /etc/portal/config/config.json --theme /etc/portal/config/theme.css --assets /etc/portal/config/assets"
+    ports:
+      - 8083:8083
+
+  app:
+    image: 5minds/education-project-BeginnersCourseTemplate
+    build:
+      context: ./
+      dockerfile: apps/BeginnersCourseTemplate/Dockerfile
+    volumes:
+      - ./apps/BeginnersCourseTemplate/Properties/:/apps/BeginnersCourseTemplate/Properties/
+      - ./apps/BeginnersCourseTemplate/EnvironmentSettings/appsettings.${APPENVIRONMENT:-Production}.json:/apps/BeginnersCourseTemplate/appsettings.json
+      - ./apps/BeginnersCourseTemplate/Program.cs:/apps/BeginnersCourseTemplate/Program.cs
+      - ./apps/BeginnersCourseTemplate/DbEnsureCreator.cs:/apps/BeginnersCourseTemplate/DbEnsureCreator.cs
+      - ./apps/BeginnersCourseTemplate/Database/:/apps/BeginnersCourseTemplate/Database/
+      - ./apps/BeginnersCourseTemplate/Laptop/:/apps/BeginnersCourseTemplate/Laptop/
+      - ./apps/BeginnersCourseTemplate/LeasingContract/:/apps/BeginnersCourseTemplate/LeasingContract/
+      - ./apps/BeginnersCourseTemplate/Worker/:/apps/BeginnersCourseTemplate/Worker/
+    ports:
+      - 5111:5111
+    working_dir: /apps/BeginnersCourseTemplate
+    environment:
+      - APPSETTINGS=${APPSETTINGS}
+    command: dotnet run
+
+  frontend:
+    image: 5minds/education-project-BeginnersCourseTemplate
+    volumes:
+      - ./apps/BeginnersCourseTemplate/frontend/public/:/apps/BeginnersCourseTemplate/frontend/public/
+      - ./apps/BeginnersCourseTemplate/frontend/src/:/apps/BeginnersCourseTemplate/frontend/src/
+      - ./apps/BeginnersCourseTemplate/frontend/.env:/apps/BeginnersCourseTemplate/frontend/.env
+      - ./apps/BeginnersCourseTemplate/frontend/.env.development:/apps/BeginnersCourseTemplate/frontend/.env.development
+      - ./apps/BeginnersCourseTemplate/frontend/aspnetcore-https.js:/apps/BeginnersCourseTemplate/frontend/aspnetcore-https.js
+      - ./apps/BeginnersCourseTemplate/frontend/aspnetcore-react.js:/apps/BeginnersCourseTemplate/frontend/aspnetcore-react.js
+      - ./apps/BeginnersCourseTemplate/frontend/tsconfig.json:/apps/BeginnersCourseTemplate/frontend/tsconfig.json
+    working_dir: /apps/BeginnersCourseTemplate/frontend/
+    command: npm start
+    ports:
+      - 3000:3000
+      - 9229:9229

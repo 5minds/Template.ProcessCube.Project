@@ -1,0 +1,32 @@
+{
+  "useAuthority": false,
+  "authorityConfiguration": {
+    "clientId": "atlasui",
+    "scopes": "test_resource"
+  },
+  "applicationBaseUrl": "http://localhost:8083",
+  "engineUrl": "http://localhost:8000",
+  "customForms": {
+    "/.*/": "http://localhost:5111"
+  },
+  "processModels": {
+    "include": ["laptophinzufuegen"],
+    "settings": {
+      "laptophinzufuegen": {
+        "title": "Laptop Hinzufügen"
+      }
+    }
+  },
+  "startDialogs": {
+    "BeginnersCourseTemplateDialog": {
+      "title": "BeginnersCourseTemplate",
+      "url": "http://localhost:5111",
+      "startButtonTitle": "Manage",
+      "id": "BeginnersCourseTemplateDialog"
+    }
+  },
+  "translationFolder": "/etc/portal/config/translation",
+  "languages": {
+    "de": "Deutsch"
+  }
+}
