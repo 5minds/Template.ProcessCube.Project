@@ -10,19 +10,22 @@
     "/.*/": "http://localhost:5111"
   },
   "processModels": {
-    "include": ["laptophinzufuegen"],
+    "include": ["Zahlenraten"],
     "settings": {
-      "laptophinzufuegen": {
-        "title": "Laptop Hinzufügen"
+      "Zahlenraten": {
+        "title": "Zahlenraten",
+        "startButtonTitles": {
+          "StartEvent_1": "Start"
+        }
       }
     }
   },
   "startDialogs": {
-    "BeginnersCourseTemplateDialog": {
-      "title": "BeginnersCourseTemplate",
-      "url": "http://localhost:5111",
-      "startButtonTitle": "Manage",
-      "id": "BeginnersCourseTemplateDialog"
+    "TestDialog": {
+      "title": "Start TestDialog",
+      "url": "http://localhost:3000",
+      "startButtonTitle": "Open dialog",
+      "id": "TestDialog"
     }
   },
   "translationFolder": "/etc/portal/config/translation",

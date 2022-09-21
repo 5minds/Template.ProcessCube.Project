@@ -5,6 +5,7 @@ import { IIdentity } from '@atlas-engine/atlas_engine_client';
 import { StartDialogDisplayedCallback, StartDialogService } from '@atlas-engine-contrib/atlas-ui_sdk';
 
 import { Config } from './contracts/Config';
+import { TestStartDialog1 } from '../TestStartDialog/TestStartDialog1';
 
 
 export type DialogComponentDict = {
@@ -63,6 +64,7 @@ class StartDialogRenderer extends React.Component<StartDialogRendererProps & Wit
   }
 
   private components: StartDialogComponentDict = {
+    TestStartDialog: TestStartDialog1,
   };
 
   public componentDidMount(): void {
