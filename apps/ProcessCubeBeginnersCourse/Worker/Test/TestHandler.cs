@@ -1,4 +1,4 @@
-namespace Handler.Test
+namespace ProcessCubeBeginnersCourse.Worker.Test
 {
     using System.Threading;
     using System.Threading.Tasks;
@@ -6,7 +6,8 @@ namespace Handler.Test
     using AtlasEngine;
     using AtlasEngine.ExternalTasks;
 
-    using external_task_worker.Handler.Test;
+    using ProcessCubeBeginnersCourse.Worker.Test;
+    
     #pragma warning disable CS0618
     [ExternalTaskHandler("TestETW")]
     #pragma warning restore CS0618

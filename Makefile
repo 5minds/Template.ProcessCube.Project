@@ -1,22 +1,22 @@
 SHELL := /bin/zsh
 
-DOCKER_IMAGES = $(shell docker images --filter=reference="5minds/education-project-BeginnersCourseTemplate_Vorlage" -q)
+DOCKER_IMAGES = $(shell docker images --filter=reference="5minds/education-project-ProcessCubeBeginnersCourse" -q)
 
-PACKAGE_LOCK_JSON_PATH = "./apps/BeginnersCourseTemplate_Vorlage/frontend/package-lock.json"
-NODE_MODULES_PATH = "./apps/BeginnersCourseTemplate_Vorlage/frontend/node_modules"
-DIALOGS_DIST_PATH = "./apps/BeginnersCourseTemplate_Vorlage/frontend/dist"
+PACKAGE_LOCK_JSON_PATH = "./apps/ProcessCubeBeginnersCourse/frontend/package-lock.json"
+NODE_MODULES_PATH = "./apps/ProcessCubeBeginnersCourse/frontend/node_modules"
+DIALOGS_DIST_PATH = "./apps/ProcessCubeBeginnersCourse/frontend/dist"
 ATLAS_ENGINE_DB_PATH = ".processcube/engine/db/atlasengine.sqlite"
 
 run:
-	npm --prefix ./apps/BeginnersCourseTemplate_Vorlage/frontend install
+	npm --prefix ./apps/ProcessCubeBeginnersCourse/frontend install
 	docker-compose build && docker-compose up
 
 up:
 	docker-compose up
 
 build:
-	npm --prefix ./apps/BeginnersCourseTemplate_Vorlage/frontend install
-	npm --prefix ./apps/BeginnersCourseTemplate_Vorlage/frontend run build
+	npm --prefix ./apps/ProcessCubeBeginnersCourse/frontend install
+	npm --prefix ./apps/ProcessCubeBeginnersCourse/frontend run build
 	docker-compose build
 
 clean:

@@ -1,4 +1,4 @@
-namespace external_task_worker.Handler.Test
+namespace ProcessCubeBeginnersCourse.Worker.Test
 {
     public class TestPayload
     {

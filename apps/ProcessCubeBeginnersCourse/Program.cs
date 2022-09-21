@@ -2,7 +2,7 @@ using AtlasEngine;
 using AtlasEngine.ApiClient;
 
 using Microsoft.EntityFrameworkCore;
-using Handler.Test;
+using ProcessCubeBeginnersCourse.Worker.Test;
 
 var builder = WebApplication.CreateBuilder(args);
 

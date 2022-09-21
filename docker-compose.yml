@@ -25,15 +25,15 @@ services:
     image: 5minds/beginnerscoursetemplate
     build:
       context: ./
-      dockerfile: apps/BeginnersCourseTemplate_Vorlage/Dockerfile
+      dockerfile: apps/ProcessCubeBeginnersCourse/Dockerfile
     volumes:
-      - ./apps/BeginnersCourseTemplate_Vorlage/Properties/:/apps/BeginnersCourseTemplate_Vorlage/Properties/
-      - ./apps/BeginnersCourseTemplate_Vorlage/EnvironmentSettings/appsettings.${APPENVIRONMENT:-Production}.json:/apps/BeginnersCourseTemplate_Vorlage/appsettings.json
-      - ./apps/BeginnersCourseTemplate_Vorlage/Program.cs:/apps/BeginnersCourseTemplate_Vorlage/Program.cs
-      - ./apps/BeginnersCourseTemplate_Vorlage/Worker/:/apps/BeginnersCourseTemplate_Vorlage/Worker/
+      - ./apps/ProcessCubeBeginnersCourse/Properties/:/apps/ProcessCubeBeginnersCourse/Properties/
+      - ./apps/ProcessCubeBeginnersCourse/EnvironmentSettings/appsettings.${APPENVIRONMENT:-Production}.json:/apps/ProcessCubeBeginnersCourse/appsettings.json
+      - ./apps/ProcessCubeBeginnersCourse/Program.cs:/apps/ProcessCubeBeginnersCourse/Program.cs
+      - ./apps/ProcessCubeBeginnersCourse/Worker/:/apps/ProcessCubeBeginnersCourse/Worker/
     ports:
       - 5111:5111
-    working_dir: /apps/BeginnersCourseTemplate_Vorlage
+    working_dir: /apps/ProcessCubeBeginnersCourse
     environment:
       - APPSETTINGS=${APPSETTINGS}
     command: dotnet run
@@ -41,14 +41,14 @@ services:
   frontend:
     image: 5minds/beginnerscoursetemplate
     volumes:
-      - ./apps/BeginnersCourseTemplate_Vorlage/frontend/public/:/apps/BeginnersCourseTemplate_Vorlage/frontend/public/
-      - ./apps/BeginnersCourseTemplate_Vorlage/frontend/src/:/apps/BeginnersCourseTemplate_Vorlage/frontend/src/
-      - ./apps/BeginnersCourseTemplate_Vorlage/frontend/.env:/apps/BeginnersCourseTemplate_Vorlage/frontend/.env
-      - ./apps/BeginnersCourseTemplate_Vorlage/frontend/.env.development:/apps/BeginnersCourseTemplate_Vorlage/frontend/.env.development
-      - ./apps/BeginnersCourseTemplate_Vorlage/frontend/aspnetcore-https.js:/apps/BeginnersCourseTemplate_Vorlage/frontend/aspnetcore-https.js
-      - ./apps/BeginnersCourseTemplate_Vorlage/frontend/aspnetcore-react.js:/apps/BeginnersCourseTemplate_Vorlage/frontend/aspnetcore-react.js
-      - ./apps/BeginnersCourseTemplate_Vorlage/frontend/tsconfig.json:/apps/BeginnersCourseTemplate_Vorlage/frontend/tsconfig.json
-    working_dir: /apps/BeginnersCourseTemplate_Vorlage/frontend/
+      - ./apps/ProcessCubeBeginnersCourse/frontend/public/:/apps/ProcessCubeBeginnersCourse/frontend/public/
+      - ./apps/ProcessCubeBeginnersCourse/frontend/src/:/apps/ProcessCubeBeginnersCourse/frontend/src/
+      - ./apps/ProcessCubeBeginnersCourse/frontend/.env:/apps/ProcessCubeBeginnersCourse/frontend/.env
+      - ./apps/ProcessCubeBeginnersCourse/frontend/.env.development:/apps/ProcessCubeBeginnersCourse/frontend/.env.development
+      - ./apps/ProcessCubeBeginnersCourse/frontend/aspnetcore-https.js:/apps/ProcessCubeBeginnersCourse/frontend/aspnetcore-https.js
+      - ./apps/ProcessCubeBeginnersCourse/frontend/aspnetcore-react.js:/apps/ProcessCubeBeginnersCourse/frontend/aspnetcore-react.js
+      - ./apps/ProcessCubeBeginnersCourse/frontend/tsconfig.json:/apps/ProcessCubeBeginnersCourse/frontend/tsconfig.json
+    working_dir: /apps/ProcessCubeBeginnersCourse/frontend/
     command: npm start
     ports:
       - 3000:3000
