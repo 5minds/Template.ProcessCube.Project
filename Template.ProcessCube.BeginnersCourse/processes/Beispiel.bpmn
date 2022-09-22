@@ -30,7 +30,7 @@
     <bpmn:serviceTask id="etw_example" name="Beispiel External Task Worker" camunda:type="external" camunda:topic="TestETW">
       <bpmn:extensionElements>
         <camunda:properties>
-          <camunda:property name="payload" value="{&#10;    input: &#39;Hello&#39;&#10;}" />
+          <camunda:property name="payload" value="{&#10;    testPayloadInput: &#39;Hello&#39;&#10;}" />
         </camunda:properties>
       </bpmn:extensionElements>
       <bpmn:incoming>Flow_0u332gi</bpmn:incoming>
