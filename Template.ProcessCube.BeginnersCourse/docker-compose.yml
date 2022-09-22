@@ -1,0 +1,55 @@
+version: "3.5"
+services:
+  engine:
+    image: 5minds/engine:13.4.6
+    ports:
+      - __EnginePort__:__EnginePort__
+    volumes:
+      - ./.processcube/engine/config/config.json:/etc/engine/config/config.json:ro
+      - ./.processcube/engine/db:/root/.config/AtlasEngineFullstackServer/databases:rw
+      - ./processes:/processes:ro
+    command: --seed-dir=/processes --port __EnginePort__
+
+  portal:
+    image: 5minds/portal:3.9.0-beta.1
+    volumes:
+      - ./.processcube/portal/theme.css:/etc/portal/config/theme.css:ro
+      - ./.processcube/portal/config.json:/etc/portal/config/config.json:ro
+      - ./.processcube/portal/assets:/etc/portal/config/assets:ro
+      - ./.processcube/portal/translation:/etc/portal/config/translation:ro
+    command: "--config-path /etc/portal/config/config.json --theme /etc/portal/config/theme.css --assets /etc/portal/config/assets"
+    ports:
+      - __PortalPort__:__PortalPort__
+
+  app:
+    image: 5minds/beginnerscoursetemplate
+    build:
+      context: ./
+      dockerfile: apps/Template.ProcessCube.BeginnersCourse/Dockerfile
+    volumes:
+      - ./apps/Template.ProcessCube.BeginnersCourse/Properties/:/apps/Template.ProcessCube.BeginnersCourse/Properties/
+      - ./apps/Template.ProcessCube.BeginnersCourse/appsettings.${APPENVIRONMENT:-Development}.json:/apps/Template.ProcessCube.BeginnersCourse/appsettings.json
+      - ./apps/Template.ProcessCube.BeginnersCourse/Program.cs:/apps/Template.ProcessCube.BeginnersCourse/Program.cs
+      - ./apps/Template.ProcessCube.BeginnersCourse/Worker/:/apps/Template.ProcessCube.BeginnersCourse/Worker/
+    ports:
+      - 5111:5111
+    working_dir: /apps/Template.ProcessCube.BeginnersCourse
+    environment:
+      - APPSETTINGS=${APPSETTINGS}
+    command: dotnet run
+
+  frontend:
+    image: 5minds/beginnerscoursetemplate
+    volumes:
+      - ./apps/Template.ProcessCube.BeginnersCourse/frontend/public/:/apps/Template.ProcessCube.BeginnersCourse/frontend/public/
+      - ./apps/Template.ProcessCube.BeginnersCourse/frontend/src/:/apps/Template.ProcessCube.BeginnersCourse/frontend/src/
+      - ./apps/Template.ProcessCube.BeginnersCourse/frontend/.env:/apps/Template.ProcessCube.BeginnersCourse/frontend/.env
+      - ./apps/Template.ProcessCube.BeginnersCourse/frontend/.env.development:/apps/Template.ProcessCube.BeginnersCourse/frontend/.env.development
+      - ./apps/Template.ProcessCube.BeginnersCourse/frontend/aspnetcore-https.js:/apps/Template.ProcessCube.BeginnersCourse/frontend/aspnetcore-https.js
+      - ./apps/Template.ProcessCube.BeginnersCourse/frontend/aspnetcore-react.js:/apps/Template.ProcessCube.BeginnersCourse/frontend/aspnetcore-react.js
+      - ./apps/Template.ProcessCube.BeginnersCourse/frontend/tsconfig.json:/apps/Template.ProcessCube.BeginnersCourse/frontend/tsconfig.json
+    working_dir: /apps/Template.ProcessCube.BeginnersCourse/frontend/
+    command: npm start
+    ports:
+      - 3000:3000
+      - 9229:9229

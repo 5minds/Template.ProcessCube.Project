@@ -16,13 +16,13 @@
     <NoWarn>$(NoWarn);NU5128</NoWarn>
     <NoDefaultExcludes>true</NoDefaultExcludes>
 
-    <RepositoryUrl>https://github.com/5minds/BeginnersCourse.Template.Vorlage</RepositoryUrl>
+    <RepositoryUrl>https://github.com/5minds/Template.ProcessCube.BeginnersCourse</RepositoryUrl>
   </PropertyGroup>
 
   <ItemGroup>
     <Content
-      Include="BeginnersCourse.Template.Vorlage\**\*"
-      Exclude="BeginnersCourse.Template.Vorlage\**\bin\**;BeginnersCourse.Template.Vorlage\**\obj\**;BeginnersCourse.Template.Vorlage\**\node_modules\**"/>
+      Include="Template.ProcessCube.BeginnersCourse\**\*"
+      Exclude="Template.ProcessCube.BeginnersCourse\**\bin\**;Template.ProcessCube.BeginnersCourse\**\obj\**;Template.ProcessCube.BeginnersCourse\**\node_modules\**"/>
     <Compile Remove="**\*" />
   </ItemGroup>
 

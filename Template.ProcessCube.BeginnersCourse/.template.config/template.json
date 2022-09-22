@@ -2,10 +2,10 @@
   "$schema": "http://json.schemastore.org/template",
   "author": "Jeremy Hill",
   "classifications": [],
-  "identity": "BeginnersCourse.Template",
+  "identity": "Template.ProcessCube.BeginnersCourse",
   "name": "Beginners Kurs Vorlage",
   "shortName": "beginnerscourse",
-  "sourceName": "BeginnersCourse.Template.Vorlage",
+  "sourceName": "Template.ProcessCube.BeginnersCourse",
   "description": "",
   "symbols": {
     "engine-port":{
@@ -25,7 +25,7 @@
   },
   "primaryOutputs": [
     {
-      "path": "BeginnersCourse.Template.Vorlage.sln"
+      "path": "Template.ProcessCube.BeginnersCourse.sln"
     }
   ],
   "postActions": [
