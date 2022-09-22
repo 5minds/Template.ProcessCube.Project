@@ -3,7 +3,7 @@
   <PropertyGroup>
     <PackageType>Template</PackageType>
     <PackageVersion>1.0.0</PackageVersion>
-    <PackageId>BeginnersCourse.Template</PackageId>
+    <PackageId>Template.ProcessCube.BeginnersCourse</PackageId>
     <Title>BeginnersCourse Template</Title>
     <Authors>Jeremy Hill</Authors>
     <Description>Template für den Beginners Kurs.</Description>
