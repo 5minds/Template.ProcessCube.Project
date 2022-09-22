@@ -6,7 +6,7 @@ namespace ProcessCubeBeginnersCourse.Worker.Test
     using AtlasEngine;
     using AtlasEngine.ExternalTasks;
 
-#pragma warning disable CS0618
+    #pragma warning disable CS0618
     [ExternalTaskHandler("TestETW")]
     #pragma warning restore CS0618
     public class TestHandler : IExternalTaskHandler<TestPayload, TestResult>
