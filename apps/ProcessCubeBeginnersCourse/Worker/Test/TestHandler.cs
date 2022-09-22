@@ -6,9 +6,7 @@ namespace ProcessCubeBeginnersCourse.Worker.Test
     using AtlasEngine;
     using AtlasEngine.ExternalTasks;
 
-    using ProcessCubeBeginnersCourse.Worker.Test;
-    
-    #pragma warning disable CS0618
+#pragma warning disable CS0618
     [ExternalTaskHandler("TestETW")]
     #pragma warning restore CS0618
     public class TestHandler : IExternalTaskHandler<TestPayload, TestResult>
@@ -16,8 +14,13 @@ namespace ProcessCubeBeginnersCourse.Worker.Test
         public Task<TestResult> HandleAsync(TestPayload input, ExternalTask task,
             CancellationToken cancellationToken = new CancellationToken())
         {
-            return Task.FromResult(new TestResult(input.TestPayloadInput));
-        }
+            Console.WriteLine("input.TestPayloadInput" + input.TestPayloadInput);
+            
+            var result = new TestResult(input.TestPayloadInput);
 
+            Console.WriteLine("Test Result: "+ result.TestResultOutput);
+            
+            return Task.FromResult(result);
+        }
     }
 }
