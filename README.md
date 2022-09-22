@@ -1,10 +1,6 @@
 # BeginnersCourse.Template.Vorlage
 
-Aufbau und Funktionsweise einer neuen Schauf-Abwicklung unterscheiden sich größenteils durch die auf den Kunden zugeschnittenen Zusatzattribute.
-Der Rest bleibt im Wesentlichen immer gleich.
-
-Um die Erstellung einer neuen Schauf-Abwicklung zu erleichtern dient das `BeginnersCourse.Template.Vorlage`.
-Dadurch kann sichergestellt werden, dass jede Schauf-Abwicklung die selbe Basis hat und es erspart eine Menge Zeit, die sonst für find & replace und weitere Konfigurationen verloren gegangen wäre.
+Dieses Template dient dem Zweck das Erstellen eines Beispielprojektes zu vereinfachen.
 
 ## Wie wurde das Template umgesetzt?
 
