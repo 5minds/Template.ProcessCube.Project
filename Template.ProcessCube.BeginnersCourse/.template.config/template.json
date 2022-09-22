@@ -1,0 +1,55 @@
+{
+  "$schema": "http://json.schemastore.org/template",
+  "author": "Jeremy Hill",
+  "classifications": [],
+  "identity": "Template.ProcessCube.BeginnersCourse",
+  "name": "Beginners Kurs Vorlage",
+  "shortName": "beginnerscourse",
+  "sourceName": "Template.ProcessCube.BeginnersCourse",
+  "description": "",
+  "symbols": {
+    "engine-port":{
+      "type": "parameter",
+      "datatype": "int",
+      "defaultValue": "8000",
+      "description": "Der Port auf dem die Engine gehosted wird.",
+      "replaces": "__EnginePort__"
+    },
+    "portal-port":{
+      "type": "parameter",
+      "datatype": "int",
+      "defaultValue": "8082",
+      "description": "Der Port auf dem das Portal gehosted wird.",
+      "replaces": "__PortalPort__"
+    }
+  },
+  "primaryOutputs": [
+    {
+      "path": "Template.ProcessCube.BeginnersCourse.sln"
+    }
+  ],
+  "postActions": [
+    {
+    "description": "Restore NuGet packages required by this project.",
+    "manualInstructions": [{
+      "text": "Run 'dotnet restore'"
+    }],
+    "actionId": "210D431B-A78B-4D2F-B762-4ED3E3EA9025",
+    "continueOnError": true
+  },
+  {
+    "description ": "Install npm packages required by this project.",
+    "manualInstructions": [{
+      "text": "Run 'npm install' in frontend."
+    }],
+    "actionId": "3A7C4B45-1F5D-4A30-959A-51B88E82B5D2",
+    "args": {
+      "executable": "make",
+      "args": "npm-install"
+    }
+  }],
+  "tags": {
+    "type": "solution",
+    "language": "C#"
+  }
+}
