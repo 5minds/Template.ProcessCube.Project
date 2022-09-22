@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <PackageType>Template</PackageType>
-    <PackageVersion>1.0.0</PackageVersion>
+    <PackageVersion>1.0.1</PackageVersion>
     <PackageId>Template.ProcessCube.BeginnersCourse</PackageId>
     <Title>BeginnersCourse Template</Title>
     <Authors>Jeremy Hill</Authors>
