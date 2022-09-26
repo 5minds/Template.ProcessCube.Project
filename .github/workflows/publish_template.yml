@@ -17,7 +17,7 @@ jobs:
     if: "!(contains(github.actor, 'process-engine-ci') || contains(github.actor, 'admin'))"
     defaults:
       run:
-        working-directory: ./TemplateHandler.csproj
+        working-directory: .
 
     steps:
     - uses: actions/checkout@v3
