@@ -1,0 +1,46 @@
+name: Publish Template
+
+on:
+  push:
+    branches:
+      - main
+      - develop
+
+env:
+  CI_TOOLS_VERSION: "3.3.4"
+  CI_TOOLS_STABLE_BRANCH: "main"
+
+jobs:
+  publish_nuget_package:
+    name: 'Build & publish nuget package'
+    runs-on: ubuntu-latest
+    if: "!(contains(github.actor, 'process-engine-ci') || contains(github.actor, 'admin'))"
+    defaults:
+      run:
+        working-directory: ./TemplateHandler.csproj
+
+    steps:
+    - uses: actions/checkout@v3
+
+    - name: Setup .NET Core 6.x
+      uses: actions/setup-dotnet@v2
+      with:
+        dotnet-version: 6.0.x
+
+    - name: Install CI tools
+      run: sudo npm i -g @process-engine/ci_tools@${{ env.CI_TOOLS_VERSION }}
+
+    - name: Pack source
+      run: dotnet pack -o artifacts/
+
+    - name: Authenticate at github packages
+      run: dotnet nuget add source --username process-engine-ci --password ${{ secrets.GITHUB_TOKEN }} --store-password-in-clear-text --name github "https://nuget.pkg.github.com/5minds/index.json"
+
+    - name: Push NuGet package
+      if: github.ref == 'refs/heads/main' || github.ref == 'refs/heads/develop'
+      run: |
+        cd ./artifacts
+        for nugetFile in ./*.nupkg; do
+          echo "Pushing $nugetFile ...";
+          dotnet nuget push $nugetFile --source "github" --skip-duplicate
+        done
