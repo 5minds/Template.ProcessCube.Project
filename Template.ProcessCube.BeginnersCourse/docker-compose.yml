@@ -1,7 +1,7 @@
 version: "3.5"
 services:
   engine:
-    image: 5minds/engine:13.4.6
+    image: 5minds/engine:14.1.0
     ports:
       - __EnginePort__:__EnginePort__
     volumes:
