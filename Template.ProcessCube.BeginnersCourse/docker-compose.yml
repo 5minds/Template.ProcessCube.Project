@@ -6,7 +6,7 @@ services:
       - __EnginePort__:__EnginePort__
     volumes:
       - ./.processcube/engine/config/config.json:/etc/engine/config/config.json:ro
-      - ./.processcube/engine/db:/root/.config/AtlasEngineFullstackServer/databases:rw
+      - ./.processcube/engine/db:/root/.atlas/engine/atlasengine.sqlite:rw
       - ./processes:/processes:ro
     command: --seed-dir=/processes --port __EnginePort__
 
