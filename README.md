@@ -74,7 +74,7 @@ Folgend werden Vorraussetzungen, Installation und Anwendung des Templates erläu
 2. Prüfen, ob das Template richtig installiert wurde:
 
     ```zsh
-    dotnet new project -h
+    dotnet new processcubeproject -h
     ```
 
 ## Template anwenden
@@ -83,7 +83,7 @@ Folgend werden Vorraussetzungen, Installation und Anwendung des Templates erläu
 2. Eine neue Anwendung generieren
 
     ```zsh
-    dotnet new project -o "My.Cool.Tutorial"
+    dotnet new processcubeproject -o "My.Cool.Tutorial"
     ```
 
     `My.Cool.Tutorial` ist hier der Beispielname des Projekts.

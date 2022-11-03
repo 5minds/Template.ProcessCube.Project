@@ -1,1 +1,1 @@
-export * from './ExampleStartdialog'
+export * from './ExampleStartdialog';

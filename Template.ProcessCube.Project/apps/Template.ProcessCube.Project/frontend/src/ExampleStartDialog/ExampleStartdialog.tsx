@@ -6,7 +6,7 @@ export class ExampleStartDialog extends React.Component<StartDialogProps, StartD
 
   public render(): JSX.Element {
     return (
-      <p>Hallo das ist ein Test Start Dialog</p>
+      <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam</p>
     );
   }
 }

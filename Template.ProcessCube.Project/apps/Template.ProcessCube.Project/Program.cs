@@ -1,9 +1,7 @@
-using Microsoft.EntityFrameworkCore;
-
 using AtlasEngine;
 using AtlasEngine.ApiClient;
 
-using ProcessCubeProject.Worker.Test;
+using Template.ProcessCube.Project.Worker.Example;
 
 var builder = WebApplication.CreateBuilder(args);
 

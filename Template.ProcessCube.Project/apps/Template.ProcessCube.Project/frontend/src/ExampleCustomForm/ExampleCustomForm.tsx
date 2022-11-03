@@ -2,9 +2,9 @@ import React from 'react';
 
 import { CustomFormProps } from '../DialogRenderer';
 
-import './TestComponent.css';
+import './ExampleCustomForm.css';
 
-export class TestComponent extends React.Component<CustomFormProps> {
+export class ExampleCustomForm extends React.Component<CustomFormProps> {
 
   constructor(props: any) {
     super(props);
@@ -15,7 +15,7 @@ export class TestComponent extends React.Component<CustomFormProps> {
   public render(): JSX.Element {
     return (
       <div className='test-class'>
-        <p>Hi, I am a simple Custom Form</p>
+        <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam</p>
         <button onClick={this._handleFormSubmit.bind(this)}>
           Confirm
         </button>

@@ -2,11 +2,11 @@
 
   <PropertyGroup>
     <PackageType>Template</PackageType>
-    <PackageVersion>1.0.1</PackageVersion>
+    <PackageVersion>2.0.0</PackageVersion>
     <PackageId>Template.ProcessCube.Project</PackageId>
     <Title>Project Template</Title>
     <Authors>Jeremy Hill</Authors>
-    <Description>Template für den Beginners Kurs.</Description>
+    <Description>Template für eine einfache .NET-Anwendung, welches den ProcessCube integriert.</Description>
     <PackageTags>dotnet-new;templates;</PackageTags>
     <TargetFramework>net6.0</TargetFramework>
 

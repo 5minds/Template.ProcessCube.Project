@@ -1,4 +1,4 @@
-namespace ProcessCubeProject.Worker.Example;
+namespace Template.ProcessCube.Project.Worker.Example;
 
 public class ExamplePayload
 {

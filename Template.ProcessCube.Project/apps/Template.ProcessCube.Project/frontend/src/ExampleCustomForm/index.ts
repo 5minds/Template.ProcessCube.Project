@@ -1,1 +1,1 @@
-export * from './ExampleCustomForm'
+export * from './ExampleCustomForm';

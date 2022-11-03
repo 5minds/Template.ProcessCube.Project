@@ -1,4 +1,4 @@
-namespace ProcessCubeProject.Worker.Example;
+namespace Template.ProcessCube.Project.Worker.Example;
 
 using System.Threading;
 using System.Threading.Tasks;
@@ -12,7 +12,7 @@ using AtlasEngine.ExternalTasks;
 public class ExampleHandler : IExternalTaskHandler<ExamplePayload, ExampleResult>
 {
     public Task<ExampleResult> HandleAsync(ExamplePayload input, ExternalTask task,
-        CancellationToken cancellationToken = new CancellationToken())
+        CancellationToken cancellationToken = new ())
     {
         var result = new ExampleResult(input.ExamplePayloadInput);
 

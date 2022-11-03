@@ -3,12 +3,12 @@ services:
   engine:
     image: 5minds/engine:13.4.6
     ports:
-      - __EnginePort__:__EnginePort__
+      - 8000:8000
     volumes:
       - ./.processcube/engine/config/config.json:/etc/engine/config/config.json:ro
       - ./.processcube/engine/db:/root/.config/AtlasEngineFullstackServer/databases:rw
       - ./processes:/processes:ro
-    command: --seed-dir=/processes --port __EnginePort__
+    command: --seed-dir=/processes --port 8000
 
   portal:
     image: 5minds/portal:3.9.0-beta.1
@@ -19,7 +19,7 @@ services:
       - ./.processcube/portal/translation:/etc/portal/config/translation:ro
     command: "--config-path /etc/portal/config/config.json --theme /etc/portal/config/theme.css --assets /etc/portal/config/assets"
     ports:
-      - __PortalPort__:__PortalPort__
+      - 8082:8082
 
   app:
     image: 5minds/projecttemplate

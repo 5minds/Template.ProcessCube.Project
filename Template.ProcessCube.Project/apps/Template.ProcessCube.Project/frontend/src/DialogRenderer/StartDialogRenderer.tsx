@@ -4,7 +4,7 @@ import { withTranslation, WithTranslation } from 'react-i18next';
 import { IIdentity } from '@atlas-engine/atlas_engine_client';
 import { StartDialogDisplayedCallback, StartDialogService } from '@atlas-engine-contrib/atlas-ui_sdk';
 
-import { Config } from './contracts/Config';
+import { Config } from '../config';
 import { ExampleStartDialog } from '../ExampleStartDialog';
 
 

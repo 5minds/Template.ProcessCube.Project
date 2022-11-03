@@ -3,8 +3,8 @@ import React from 'react';
 import { DataModels, Identity } from '@atlas-engine/atlas_engine_client';
 import { CustomFormService, FormState } from '@atlas-engine-contrib/atlas-ui_sdk';
 
-import { Config } from './contracts/Config';
-import { TestComponent } from '../ExampleCustomForm';
+import { Config } from '../config';
+import { ExampleCustomForm } from '../ExampleCustomForm';
 
 
 export type CustomFormProps = {
@@ -40,7 +40,7 @@ export class CustomFormsRenderer extends React.Component<CustomFormRendererProps
   };
 
   private components: CustomFormsComponentDict = {
-    testCustomForm: TestComponent,
+    ExampleCustomForm: ExampleCustomForm,
   };
 
   private customFormService: CustomFormService | null = null;

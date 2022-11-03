@@ -4,20 +4,20 @@
     "clientId": "atlasui",
     "scopes": "test_resource"
   },
-  "applicationBaseUrl": "http://localhost:__PortalPort__",
-  "engineUrl": "http://localhost:__EnginePort__",
+  "applicationBaseUrl": "http://localhost:8082",
+  "engineUrl": "http://localhost:8000",
   "customForms": {
     "/.*/": "http://localhost:5111"
   },
   "processModels": {
-    "include": ["beispiel"]
+    "include": ["example"]
   },
   "startDialogs": {
-    "BeispielStartDialog": {
-      "title": "Beispiel Start Dialog",
+    "ExampleStartDialog": {
+      "title": "Example Start Dialog",
       "url": "http://localhost:5111",
       "startButtonTitle": "Öffnen",
-      "id": "BeispielStartDialog"
+      "id": "ExampleStartDialog"
     }
   },
   "translationFolder": "/etc/portal/config/translation",
