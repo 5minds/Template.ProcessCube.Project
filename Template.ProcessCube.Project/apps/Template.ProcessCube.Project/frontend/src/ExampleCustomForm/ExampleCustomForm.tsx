@@ -15,7 +15,7 @@ export class ExampleCustomForm extends React.Component<CustomFormProps> {
   public render(): JSX.Element {
     return (
       <div className='test-class'>
-        <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam</p>
+        <p>This is a custom-form.</p>
         <button onClick={this._handleFormSubmit.bind(this)}>
           Confirm
         </button>
