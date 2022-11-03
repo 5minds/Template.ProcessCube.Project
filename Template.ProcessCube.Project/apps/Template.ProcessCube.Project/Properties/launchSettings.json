@@ -8,7 +8,7 @@
     }
   },
   "profiles": {
-    "ProcessCubeProjekt": {
+    "ProcessCubeProject": {
       "commandName": "Project",
       "launchBrowser": true,
       "launchUrl": "http://localhost:5111",
