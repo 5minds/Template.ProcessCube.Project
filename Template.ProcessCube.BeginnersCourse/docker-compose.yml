@@ -27,6 +27,7 @@ services:
       context: ./
       dockerfile: apps/Template.ProcessCube.BeginnersCourse/Dockerfile
     volumes:
+      - ./apps/Template.ProcessCube.BeginnersCourse/frontend/src/config/config.json:/apps/Template.ProcessCube.BeginnersCourse/wwwroot/config.json
       - ./apps/Template.ProcessCube.BeginnersCourse/Properties/:/apps/Template.ProcessCube.BeginnersCourse/Properties/
       - ./apps/Template.ProcessCube.BeginnersCourse/appsettings.${APPENVIRONMENT:-Development}.json:/apps/Template.ProcessCube.BeginnersCourse/appsettings.json
       - ./apps/Template.ProcessCube.BeginnersCourse/Program.cs:/apps/Template.ProcessCube.BeginnersCourse/Program.cs

@@ -4,7 +4,7 @@ import { DataModels, Identity } from '@atlas-engine/atlas_engine_client';
 import { CustomFormService, FormState } from '@atlas-engine-contrib/atlas-ui_sdk';
 
 import { Config } from './contracts/Config';
-import { TestComponent } from '../TestComponent/TestComponent';
+import { TestComponent } from '../ExampleCustomForm';
 
 
 export type CustomFormProps = {

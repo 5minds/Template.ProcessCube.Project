@@ -1,12 +1,6 @@
 {
-    "webAPIConfig": {
-      "graphQlHttpApiUrl": "http://localhost:5111/graphql",
-      "graphQlWsApiUrl": "ws://localhost:5111/graphql"
-    },
     "processEngineConfig": {
-      "processModelId": "beispiel"
-    },
-    "atlasEngineClientConfig": {
-      "atlasEngineUri": "http://localhost:__EnginePort__"
+      "processModelId": "example",
+      "uri": "http://localhost:__EnginePort__"
     }
 }
