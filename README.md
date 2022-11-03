@@ -1,4 +1,4 @@
-# Template.ProcessCube.BeginnersCourse
+# Template.ProcessCube.Project
 
 Dieses Template dient dem Zweck das Erstellen eines Beispielprojektes zu vereinfachen.
 
@@ -68,13 +68,13 @@ Folgend werden Vorraussetzungen, Installation und Anwendung des Templates erläu
 1. Template installieren:
 
     ```zsh
-    dotnet new -i Template.ProcessCube.BeginnersCourse --nuget-source "https://nuget.pkg.github.com/5minds/index.json"
+    dotnet new -i Template.ProcessCube.Project --nuget-source "https://nuget.pkg.github.com/5minds/index.json"
     ```
 
 2. Prüfen, ob das Template richtig installiert wurde:
 
     ```zsh
-    dotnet new beginnerscourse -h
+    dotnet new processcubeproject -h
     ```
 
 ## Template anwenden
@@ -83,7 +83,7 @@ Folgend werden Vorraussetzungen, Installation und Anwendung des Templates erläu
 2. Eine neue Anwendung generieren
 
     ```zsh
-    dotnet new beginnerscourse -o "My.Cool.Tutorial"
+    dotnet new processcubeproject -o "My.Cool.Tutorial"
     ```
 
     `My.Cool.Tutorial` ist hier der Beispielname des Projekts.
