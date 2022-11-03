@@ -1,4 +1,4 @@
-namespace ProcessCubeBeginnersCourse.Worker.Example;
+namespace ProcessCubeProject.Worker.Example;
 
 using System.Threading;
 using System.Threading.Tasks;

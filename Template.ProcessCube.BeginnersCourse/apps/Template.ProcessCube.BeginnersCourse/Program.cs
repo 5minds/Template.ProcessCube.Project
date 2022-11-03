@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore;
 using AtlasEngine;
 using AtlasEngine.ApiClient;
 
-using ProcessCubeBeginnersCourse.Worker.Test;
+using ProcessCubeProject.Worker.Test;
 
 var builder = WebApplication.CreateBuilder(args);
 

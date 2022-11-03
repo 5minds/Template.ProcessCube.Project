@@ -8,7 +8,7 @@
     }
   },
   "profiles": {
-    "BeginnersCourseTemplate": {
+    "ProjectTemplate": {
       "commandName": "Project",
       "launchBrowser": true,
       "launchUrl": "http://localhost:5111",

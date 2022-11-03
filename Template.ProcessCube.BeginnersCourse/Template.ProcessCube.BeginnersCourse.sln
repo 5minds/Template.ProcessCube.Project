@@ -5,7 +5,7 @@ VisualStudioVersion = 16.0.30114.105
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "apps", "apps", "{7A51B4DB-41D5-40FF-A77C-947059D784FE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Template.ProcessCube.BeginnersCourse", "apps\Template.ProcessCube.BeginnersCourse\Template.ProcessCube.BeginnersCourse.csproj", "{F797B55D-49FB-451C-BE60-62DB2AA79922}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Template.ProcessCube.Project", "apps\Template.ProcessCube.Project\Template.ProcessCube.Project.csproj", "{F797B55D-49FB-451C-BE60-62DB2AA79922}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

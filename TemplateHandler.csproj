@@ -3,8 +3,8 @@
   <PropertyGroup>
     <PackageType>Template</PackageType>
     <PackageVersion>1.0.1</PackageVersion>
-    <PackageId>Template.ProcessCube.BeginnersCourse</PackageId>
-    <Title>BeginnersCourse Template</Title>
+    <PackageId>Template.ProcessCube.Project</PackageId>
+    <Title>Project Template</Title>
     <Authors>Jeremy Hill</Authors>
     <Description>Template für den Beginners Kurs.</Description>
     <PackageTags>dotnet-new;templates;</PackageTags>
@@ -16,13 +16,13 @@
     <NoWarn>$(NoWarn);NU5128</NoWarn>
     <NoDefaultExcludes>true</NoDefaultExcludes>
 
-    <RepositoryUrl>https://github.com/5minds/Template.ProcessCube.BeginnersCourse</RepositoryUrl>
+    <RepositoryUrl>https://github.com/5minds/Template.ProcessCube.Project</RepositoryUrl>
   </PropertyGroup>
 
   <ItemGroup>
     <Content
-      Include="Template.ProcessCube.BeginnersCourse\**\*"
-      Exclude="Template.ProcessCube.BeginnersCourse\**\bin\**;Template.ProcessCube.BeginnersCourse\**\obj\**;Template.ProcessCube.BeginnersCourse\**\node_modules\**"/>
+      Include="Template.ProcessCube.Project\**\*"
+      Exclude="Template.ProcessCube.Project\**\bin\**;Template.ProcessCube.Project\**\obj\**;Template.ProcessCube.Project\**\node_modules\**"/>
     <Compile Remove="**\*" />
   </ItemGroup>
 
