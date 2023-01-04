@@ -30,7 +30,7 @@
     <bpmn:serviceTask id="etw_example" name="Example External Task Worker" camunda:type="external" camunda:topic="ExampleETW">
       <bpmn:extensionElements>
         <camunda:properties>
-          <camunda:property name="payload" value="{&#10;    exampleInput: &#39;Example Input&#39;&#10;}" />
+          <camunda:property name="payload" value="{&#10;    examplePayloadInput: &#39;Example Payload Input&#39;&#10;}" />
         </camunda:properties>
       </bpmn:extensionElements>
       <bpmn:incoming>Flow_0u332gi</bpmn:incoming>
@@ -55,18 +55,6 @@
       <bpmndi:BPMNShape id="Lane_1xzf0d3_di" bpmnElement="Lane_1xzf0d3" isHorizontal="true">
         <dc:Bounds x="447" y="300" width="593" height="270" />
       </bpmndi:BPMNShape>
-      <bpmndi:BPMNEdge id="Flow_0qq7tcw_di" bpmnElement="Flow_0qq7tcw">
-        <di:waypoint x="870" y="430" />
-        <di:waypoint x="932" y="430" />
-      </bpmndi:BPMNEdge>
-      <bpmndi:BPMNEdge id="Flow_0dkqcyj_di" bpmnElement="Flow_0dkqcyj">
-        <di:waypoint x="710" y="430" />
-        <di:waypoint x="770" y="430" />
-      </bpmndi:BPMNEdge>
-      <bpmndi:BPMNEdge id="Flow_0u332gi_di" bpmnElement="Flow_0u332gi">
-        <di:waypoint x="558" y="430" />
-        <di:waypoint x="610" y="430" />
-      </bpmndi:BPMNEdge>
       <bpmndi:BPMNShape id="StartEvent_1_di" bpmnElement="start_event">
         <dc:Bounds x="522" y="412" width="36" height="36" />
         <bpmndi:BPMNLabel>
@@ -87,6 +75,18 @@
         <dc:Bounds x="770" y="390" width="100" height="80" />
         <bpmndi:BPMNLabel />
       </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="Flow_0u332gi_di" bpmnElement="Flow_0u332gi">
+        <di:waypoint x="558" y="430" />
+        <di:waypoint x="610" y="430" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0dkqcyj_di" bpmnElement="Flow_0dkqcyj">
+        <di:waypoint x="710" y="430" />
+        <di:waypoint x="770" y="430" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0qq7tcw_di" bpmnElement="Flow_0qq7tcw">
+        <di:waypoint x="870" y="430" />
+        <di:waypoint x="932" y="430" />
+      </bpmndi:BPMNEdge>
     </bpmndi:BPMNPlane>
   </bpmndi:BPMNDiagram>
 </bpmn:definitions>
