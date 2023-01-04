@@ -9,6 +9,8 @@ services:
       - ./.processcube/engine/db:/root/.config/AtlasEngineFullstackServer/databases:rw
       - ./processes:/processes:ro
     command: --seed-dir=/processes --port 8000
+    environment:
+      CONFIG_PATH: /etc/engine/config/config.json
 
   portal:
     image: 5minds/portal:3.9.0-beta.1
