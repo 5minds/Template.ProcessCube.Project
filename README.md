@@ -1,15 +1,15 @@
 # Template.ProcessCube.Project
 
-Dieses Template dient dem Zweck das Erstellen eines Beispielprojektes zu vereinfachen.
+Dieses Template dient dem Zweck das Erstellen einer Anwendung in Verbindung mit dem ProcessCube zu vereinfachen.
 
 ## Wie wurde das Template umgesetzt?
 
-Das Template ist ein .NET-Template, welches nach dem Standard der *[Template-Engine](https://github.com/dotnet/templating/wiki)* erstellt wurde.
+Das Template ist ein .NET-Template, welches nach dem Standard der [Template-Engine](https://github.com/dotnet/templating/wiki) erstellt wurde.
 
 Dafür wurde ein Ordner `.template.config` mit einer `template.json` angelegt.
-In dieser `template.json` sind sämtliche notwendige Informationen, wie Author, Parameter, Post-Actions etc., für das Template definiert. *[Weitere Informationen](https://docs.microsoft.com/de-de/dotnet/core/tools/custom-templates#templatejson)*
+In dieser `template.json` sind sämtliche notwendige Informationen, wie Author, Parameter, Post-Actions etc., für das Template definiert. [Weitere Informationen](https://docs.microsoft.com/de-de/dotnet/core/tools/custom-templates#templatejson)
 
-Das Template ist schließlich als NuGet-Paket auf GitHub unter *[https://nuget.pkg.github.com/5minds/index.json](https://nuget.pkg.github.com/5minds/index.json)* gepushed worden.
+Das Template ist schließlich als NuGet-Paket auf GitHub unter [https://nuget.pkg.github.com/5minds/index.json](https://nuget.pkg.github.com/5minds/index.json) gepushed worden.
 
 Folgend werden Vorraussetzungen, Installation und Anwendung des Templates erläutert.
 
@@ -23,58 +23,55 @@ Folgend werden Vorraussetzungen, Installation und Anwendung des Templates erläu
 
 <https://dotnet.microsoft.com/en-us/download/dotnet/6.0>
 
+### Node.js
+
+Um das Projekt starten zu können ist die Installation von Node.js vorrausgesetzt, welches von [der offiziellen Webseite](https://nodejs.org/en/download/)
+heruntergeladen werden kann.
+
 ## NuGet-Source hinzufügen
 
-1. Generiere GitHub-PAT mit dem Recht Pakete lesen zu dürfen - *[Ausführliche Anleitung](documentation/github/set_up_github_credentials_for_github-packages.md#github-pat-generieren)*
+1. Generiere GitHub-PAT mit dem Recht Pakete lesen zu dürfen - [Ausführliche Anleitung](documentation/github/set_up_github_credentials_for_github-packages.md)
 
-2. Exportiere GitHub-PAT und zugehörigen GitHub-Username in der `.zshrc` als Umgebungsvariable - *[Ausführliche Anleitung](documentation/github/set_up_github_credentials_for_github-packages.md#authentifizierung-einrichten)*
+2. **NuGet-Source hinzufügen**
 
-3. Überprüfen, ob die notwendige NuGet-Source schon hinzugefügt wurde
+    :::info
 
-    ```zsh
-    dotnet nuget list source
-    ```
+    `USERNAME` muss durch den GitHub Nutzernamen des Accounts ersetzt werden, mit welchem im letzten Schritt der PAT generiert wurde.
 
-    Wenn dort die Source `https://nuget.pkg.github.com/5minds/index.json` aufgelistet und als `[Enabled]` gekennzeichnet wird, kann zur Installation übergegangen werden.
+    `PAT` muss dementsprechend durch den zugehörigen GitHub-PAT ersetzt werden.
 
-    Wird die Source `https://nuget.pkg.github.com/5minds/index.json` aufgelistet, aber als `[Disabled]` gekennzeichnet, kann sie unter Angabe des spezifizierten Namens für diese Source wieder enabled werden.
-
-    Lautet der spezifierte Name der Source `github` funktioniert das mit folgendem Befehl
+    :::
 
     ```zsh
-    dotnet nuget enable source github
+    dotnet nuget add source --username USERNAME --password PAT --store-password-in-clear-text --name 5minds "https://nuget.pkg.github.com/5minds/index.json"
     ```
 
-4. NuGet-Source hinzufügen:
+    Output:
 
-    ```zsh
-    dotnet nuget add source --username ${GITHUB_USERNAME} --password ${GITHUB_PAT} --store-password-in-clear-text --name github "https://nuget.pkg.github.com/5minds/index.json"
+    ```text
+    Package source with Name: 5minds added successfully.
     ```
-
-    Der `--name` kann dabei frei gewählt werden.
-
-    Prüfen, ob die Source hinzugefügt wurde:
-
-    ```zsh
-    dotnet nuget list source
-    ```
-
-    Folgender Output wird erwartet:
-
-    ![registered_sources_screenshot](documentation/images/registered_sources_screenshot.png)
 
 ## Template installieren
 
-1. Template installieren:
+Es gibt 2 Varianten das Template zu installieren.
+Die 1. Variante ist für die Standardnutzung gedacht.
+Damit das Template relativ schmerzlos vor einem Release getestet werden kann, sind im der Makefile entsprechende Befehle definiert.
+
+1. NuGet registry:
 
     ```zsh
-    dotnet new -i Template.ProcessCube.Project --nuget-source "https://nuget.pkg.github.com/5minds/index.json"
+    dotnet new -i Template.ProcessCube.Project
     ```
 
-2. Prüfen, ob das Template richtig installiert wurde:
+2. Repositoy:
 
     ```zsh
-    dotnet new processcubeproject -h
+    make template
+    ```
+
+    ```zsh
+    make install-template
     ```
 
 ## Template anwenden
