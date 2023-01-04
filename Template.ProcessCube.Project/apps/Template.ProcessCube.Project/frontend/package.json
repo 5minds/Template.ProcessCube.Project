@@ -2,6 +2,9 @@
   "name": "beginners.course.template.vorlage",
   "version": "0.1.0",
   "private": true,
+  "engines": {
+    "node": "16.x"
+  },
   "dependencies": {
     "@atlas-engine-contrib/atlas-ui_sdk": "^2.4.0",
     "@atlas-engine/atlas_engine_client": "^3.5.0",
