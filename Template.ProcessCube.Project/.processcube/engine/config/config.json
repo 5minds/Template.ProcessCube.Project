@@ -19,7 +19,7 @@
     "logging": false
   },
   "iam": {
-    "allowAnonymousRootAccess": true,
+    "allowAnonymousRootAccess": true
   },
   "extraInfo": {
     "portalUrl": "http://localhost:8082/"
