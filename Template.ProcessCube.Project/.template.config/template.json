@@ -12,6 +12,20 @@
       "path": "Template.ProcessCube.Project.sln"
     }
   ],
+  "symbols": {
+    "sourceNameLower":{
+      "type": "derived",
+      "valueSource": "name",
+      "valueTransform": "lc",
+      "replaces": "source_name_lower"
+    }
+  },
+  "forms": {
+    "lc":
+    {
+      "identifier": "lowerCaseInvariant"
+    }
+  },
   "postActions": [
     {
     "description": "Restore NuGet packages required by this project.",
