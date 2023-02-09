@@ -34,13 +34,9 @@ heruntergeladen werden kann.
 
 2. **NuGet-Source hinzufügen**
 
-    :::info
-
     `USERNAME` muss durch den GitHub Nutzernamen des Accounts ersetzt werden, mit welchem im letzten Schritt der PAT generiert wurde.
 
     `PAT` muss dementsprechend durch den zugehörigen GitHub-PAT ersetzt werden.
-
-    :::
 
     ```zsh
     dotnet nuget add source --username USERNAME --password PAT --store-password-in-clear-text --name 5minds "https://nuget.pkg.github.com/5minds/index.json"
