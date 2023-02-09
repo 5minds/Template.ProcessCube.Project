@@ -1,7 +1,9 @@
 FROM mcr.microsoft.com/dotnet/sdk:6.0
 
-RUN apt-get update
-RUN apt-get install -y nodejs npm
+RUN apt-get -q update && \
+  curl -fsSL https://deb.nodesource.com/setup_18.x | bash - && \
+  apt-get install -y \
+  nodejs
 
 WORKDIR /apps/Template.ProcessCube.Project/frontend
 COPY apps/Template.ProcessCube.Project/frontend/package.json apps/Template.ProcessCube.Project/frontend/package-lock.json ./
