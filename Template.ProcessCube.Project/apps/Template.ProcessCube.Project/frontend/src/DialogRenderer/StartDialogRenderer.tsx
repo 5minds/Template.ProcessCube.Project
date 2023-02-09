@@ -25,7 +25,6 @@ export type StartDialogProps = {
 
 export type StartDialogRendererProps = {
   components?: StartDialogComponentDict;
-  stammdatenDialogs?: DialogComponentDict;
   config?: Config;
 }
 
