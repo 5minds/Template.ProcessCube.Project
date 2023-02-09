@@ -1,7 +1,7 @@
 import React from 'react';
 import { withTranslation, WithTranslation } from 'react-i18next';
 
-import { IIdentity } from '@atlas-engine/atlas_engine_client';
+import { Identity } from '@atlas-engine/atlas_engine_client';
 import { StartDialogDisplayedCallback, StartDialogService } from '@atlas-engine-contrib/atlas-ui_sdk';
 
 import { Config } from '../config';
@@ -15,7 +15,7 @@ export type DialogComponentDict = {
 // eslint-disable-next-line @typescript-eslint/ban-types
 export type StartDialogProps = {
   language: string,
-  identity: IIdentity;
+  identity: Identity;
   startDialogConfiguration: StartDialogConfiguration;
   closeStartDialog: () => void;
   openStartDialog: (startDialogId: string) => void;
@@ -25,7 +25,6 @@ export type StartDialogProps = {
 
 export type StartDialogRendererProps = {
   components?: StartDialogComponentDict;
-  stammdatenDialogs?: DialogComponentDict;
   config?: Config;
 }
 
@@ -36,7 +35,7 @@ export type StartDialogComponentDict = {
 export type StartDialogRendererState = {
   targetComponent: React.ComponentClass<StartDialogProps> | React.FunctionComponent<StartDialogProps> | null;
   targetStartDialogConfiguration: StartDialogConfiguration | null;
-  targetIdentity: IIdentity | null;
+  targetIdentity: Identity | null;
   currentLanguage: string;
 }
 
@@ -84,7 +83,7 @@ class StartDialogRenderer extends React.Component<StartDialogRendererProps & Wit
     this.startDialogService.destroy();
   }
 
-  private displayStartDialog = (config: StartDialogConfiguration, identity: IIdentity): void => {
+  private displayStartDialog = (config: StartDialogConfiguration, identity: Identity): void => {
     const component = this.components[config.id];
     if (!component) {
       throw new Error(`No component found for usertask ${JSON.stringify(config)}`);
