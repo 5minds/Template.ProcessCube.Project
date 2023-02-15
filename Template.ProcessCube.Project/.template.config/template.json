@@ -20,11 +20,11 @@
       "replaces": "source_name_lower"
     },
     "sourceNameLowerDocker": {
-    "type": "derived",
-    "valueSource": "sourceNameLower",
-    "valueTransform": "replaceDotWithUnderscore",
-    "replaces": "source_name_lower_docker"
-  }
+      "type": "derived",
+      "valueSource": "sourceNameLower",
+      "valueTransform": "replaceDotWithUnderscore",
+      "replaces": "source_name_lower_docker"
+    }
   },
   "forms": {
     "lc":
