@@ -24,7 +24,7 @@ services:
       - 8082:8082
 
   app:
-    image: 5minds/processcube_project
+    image: source_name_lower_docker
     build:
       context: ./
       dockerfile: apps/Template.ProcessCube.Project/Dockerfile
@@ -42,7 +42,7 @@ services:
     command: dotnet run
 
   frontend:
-    image: 5minds/processcube_project
+    image: source_name_lower_docker
     volumes:
       - ./apps/Template.ProcessCube.Project/frontend/public/:/apps/Template.ProcessCube.Project/frontend/public/
       - ./apps/Template.ProcessCube.Project/frontend/src/:/apps/Template.ProcessCube.Project/frontend/src/
