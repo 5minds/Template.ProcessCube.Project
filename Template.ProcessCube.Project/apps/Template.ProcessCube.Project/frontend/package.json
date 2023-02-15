@@ -60,7 +60,7 @@
     "@svgr/webpack": "$@svgr/webpack"
   },
   "scripts": {
-    "start": "rimraf ./build && react-scripts --preserve-symlinks --inspect=0.0.0.0 start",
+    "start": "rimraf ./build && react-scripts start",
     "build": "react-scripts build",
     "test": "cross-env CI=true react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
