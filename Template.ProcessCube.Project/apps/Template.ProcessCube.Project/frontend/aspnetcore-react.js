@@ -1,8 +1,8 @@
 // This script configures the .env.development.local file with additional environment variables to configure HTTPS using the ASP.NET Core
 // development certificate in the webpack development proxy.
 
-const fs = require('fs');
-const path = require('path');
+import fs from 'fs';
+import path from 'path';
 
 const baseFolder =
   process.env.APPDATA !== undefined && process.env.APPDATA !== ''
@@ -13,7 +13,7 @@ const certificateArg = process.argv.map(arg => arg.match(/--name=(?<value>.+)/i)
 const certificateName = certificateArg ? certificateArg.groups.value : process.env.npm_package_name;
 
 if (!certificateName) {
-  console.error('Invalid certificate name. Run this script in the context of an npm/yarn script or pass --name=<<app>> explicitly.')
+  console.error('Invalid certificate name. Run this script in the context of an npm/yarn script or pass --name=<<app>> explicitly.');
   process.exit(-1);
 }
 
@@ -23,7 +23,7 @@ const keyFilePath = path.join(baseFolder, `${certificateName}.key`);
 if (!fs.existsSync('.env.development.local')) {
   fs.writeFileSync(
     '.env.development.local',
-`SSL_CRT_FILE=${certFilePath}
+    `SSL_CRT_FILE=${certFilePath}
 SSL_KEY_FILE=${keyFilePath}`
   );
 } else {

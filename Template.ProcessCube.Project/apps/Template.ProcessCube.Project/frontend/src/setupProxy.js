@@ -1,17 +1,19 @@
-const { createProxyMiddleware } = require("http-proxy-middleware");
+/* eslint-disable @typescript-eslint/no-var-requires */
+const { createProxyMiddleware } = require('http-proxy-middleware');
 const { env } = require('process');
 
-const target = env.ASPNETCORE_HTTPS_PORT ? `https://localhost:${env.ASPNETCORE_HTTPS_PORT}` :
+const target = env.ASPNETCORE_HTTPS_PORT
+  ? `https://localhost:${env.ASPNETCORE_HTTPS_PORT}` :
   env.ASPNETCORE_URLS ? env.ASPNETCORE_URLS.split(';')[0] : 'http://frontend:3000';
 
-const context =  [
-  "/apps/Template.ProcessCube.Project",
+const context = [
+  '/apps/Template.ProcessCube.Project',
 ];
 
 module.exports = function(app) {
   const appProxy = createProxyMiddleware(context, {
     target: target,
-    secure: false
+    secure: false,
   });
 
   app.use(appProxy);
