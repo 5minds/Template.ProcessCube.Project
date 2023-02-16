@@ -1,5 +1,4 @@
 import React from 'react';
-import { withTranslation, WithTranslation } from 'react-i18next';
 
 import { Identity } from '@atlas-engine/atlas_engine_client';
 import { StartDialogDisplayedCallback, StartDialogService } from '@atlas-engine-contrib/atlas-ui_sdk';
@@ -12,7 +11,6 @@ export type DialogComponentDict = {
   [id: string]: string;
 }
 
-// eslint-disable-next-line @typescript-eslint/ban-types
 export type StartDialogProps = {
   language: string,
   identity: Identity;
@@ -47,11 +45,11 @@ export type StartDialogConfiguration = {
   startButtonTitle: string;
 }
 
-class StartDialogRenderer extends React.Component<StartDialogRendererProps & WithTranslation, StartDialogRendererState> {
+class StartDialogRenderer extends React.Component<StartDialogRendererProps, StartDialogRendererState> {
 
   private startDialogService: StartDialogService | null = null;
 
-  constructor(props: StartDialogRendererProps & WithTranslation) {
+  constructor(props: StartDialogRendererProps) {
     super(props);
 
     this.state = {
@@ -120,4 +118,4 @@ class StartDialogRenderer extends React.Component<StartDialogRendererProps & Wit
 
 }
 
-export default withTranslation()(StartDialogRenderer);
+export default StartDialogRenderer;

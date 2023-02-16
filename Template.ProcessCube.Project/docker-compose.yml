@@ -31,14 +31,13 @@ services:
     volumes:
       - ./apps/Template.ProcessCube.Project/frontend/src/config/config.json:/apps/Template.ProcessCube.Project/wwwroot/config.json
       - ./apps/Template.ProcessCube.Project/Properties/:/apps/Template.ProcessCube.Project/Properties/
-      - ./apps/Template.ProcessCube.Project/appsettings.${APPENVIRONMENT:-Development}.json:/apps/Template.ProcessCube.Project/appsettings.json
+      - ./apps/Template.ProcessCube.Project/appsettings.json:/apps/Template.ProcessCube.Project/appsettings.json
+      - ./apps/Template.ProcessCube.Project/appsettings.Development.json:/apps/Template.ProcessCube.Project/appsettings.Development.json
       - ./apps/Template.ProcessCube.Project/Program.cs:/apps/Template.ProcessCube.Project/Program.cs
       - ./apps/Template.ProcessCube.Project/Worker/:/apps/Template.ProcessCube.Project/Worker/
     ports:
       - 5111:5111
     working_dir: /apps/Template.ProcessCube.Project
-    environment:
-      - APPSETTINGS=${APPSETTINGS}
     command: dotnet run
 
   frontend:
@@ -55,4 +54,3 @@ services:
     command: npm start
     ports:
       - 3000:3000
-      - 9229:9229
