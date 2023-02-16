@@ -18,12 +18,23 @@
       "valueSource": "name",
       "valueTransform": "lc",
       "replaces": "source_name_lower"
+    },
+    "sourceNameLowerDocker": {
+      "type": "derived",
+      "valueSource": "sourceNameLower",
+      "valueTransform": "replaceDotWithUnderscore",
+      "replaces": "source_name_lower_docker"
     }
   },
   "forms": {
     "lc":
     {
       "identifier": "lowerCaseInvariant"
+    },
+    "replaceDotWithUnderscore": {
+      "identifier": "replace",
+      "pattern": "\\.",
+      "replacement": "_"
     }
   },
   "postActions": [

@@ -1,6 +1,6 @@
 SHELL := /bin/zsh
 
-DOCKER_IMAGES = $(shell docker images --filter=reference="5minds/education-project-Template.ProcessCube.Project" -q)
+DOCKER_IMAGES = $(shell docker images --filter=reference="source_name_lower_docker" -q)
 
 PACKAGE_LOCK_JSON_PATH = "./apps/Template.ProcessCube.Project/frontend/package-lock.json"
 NODE_MODULES_PATH = "./apps/Template.ProcessCube.Project/frontend/node_modules"
