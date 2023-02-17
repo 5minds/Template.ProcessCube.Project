@@ -1,12 +1,12 @@
 version: "3.5"
 services:
   engine:
-    image: 5minds/engine:13.4.6
+    image: 5minds/engine:14.0.0
     ports:
       - 8000:8000
     volumes:
       - ./.processcube/engine/config/config.json:/etc/engine/config/config.json:ro
-      - ./.processcube/engine/db:/root/.config/AtlasEngineFullstackServer/databases:rw
+      - ./.processcube/engine/db:/root/.atlas/engine/atlasengine.sqlite:rw
       - ./processes:/processes:ro
     command: --seed-dir=/processes --port 8000
     environment:
