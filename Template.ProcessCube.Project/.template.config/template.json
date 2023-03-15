@@ -24,6 +24,12 @@
       "valueSource": "sourceNameLower",
       "valueTransform": "replaceDotWithUnderscore",
       "replaces": "source_name_lower_docker"
+    },    
+    "UITests": {
+      "type": "parameter",
+      "dataType": "bool",
+      "defaultValue": "false",
+      "description": "Adds an ui-tests in project test projects."
     }
   },
   "forms": {
@@ -49,5 +55,35 @@
   "tags": {
     "type": "solution",
     "language": "C#"
-  }
+  },
+  "sources": [
+    {
+      "modifiers": [
+            {
+                "condition": "UITests",
+                "include": 
+                [
+                    "integration-tests/**/*",
+                    "docker-compose.tests.yml",
+                    "MakefileTesting"
+                ],
+                "exclude": [
+                  "Makefile"
+                ],
+                "rename": {
+                  "MakefileTesting":"Makefile"
+                }
+            },
+            {
+              "condition": "!(UITests)",
+              "exclude": 
+              [
+                  "integration-tests/**/*",
+                  "docker-compose.tests.yml",
+                  "MakefileTesting"
+              ]
+            }
+        ]
+    }
+]
 }
