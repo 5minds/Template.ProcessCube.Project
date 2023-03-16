@@ -13,7 +13,7 @@
     }
   ],
   "symbols": {
-    "sourceNameLower":{
+    "sourceNameLower": {
       "type": "derived",
       "valueSource": "name",
       "valueTransform": "lc",
@@ -24,8 +24,8 @@
       "valueSource": "sourceNameLower",
       "valueTransform": "replaceDotWithUnderscore",
       "replaces": "source_name_lower_docker"
-    },    
-    "UITests": {
+    },
+    "add-ui-tests": {
       "type": "parameter",
       "dataType": "bool",
       "defaultValue": "false",
@@ -33,8 +33,7 @@
     }
   },
   "forms": {
-    "lc":
-    {
+    "lc": {
       "identifier": "lowerCaseInvariant"
     },
     "replaceDotWithUnderscore": {
@@ -45,13 +44,16 @@
   },
   "postActions": [
     {
-    "description": "Restore NuGet packages required by this project.",
-    "manualInstructions": [{
-      "text": "Run 'dotnet restore'"
-    }],
-    "actionId": "210D431B-A78B-4D2F-B762-4ED3E3EA9025",
-    "continueOnError": true
-  }],
+      "description": "Restore NuGet packages required by this project.",
+      "manualInstructions": [
+        {
+          "text": "Run 'dotnet restore'"
+        }
+      ],
+      "actionId": "210D431B-A78B-4D2F-B762-4ED3E3EA9025",
+      "continueOnError": true
+    }
+  ],
   "tags": {
     "type": "solution",
     "language": "C#"
@@ -59,31 +61,29 @@
   "sources": [
     {
       "modifiers": [
-            {
-                "condition": "UITests",
-                "include": 
-                [
-                    "integration-tests/**/*",
-                    "docker-compose.tests.yml",
-                    "MakefileTesting"
-                ],
-                "exclude": [
-                  "Makefile"
-                ],
-                "rename": {
-                  "MakefileTesting":"Makefile"
-                }
-            },
-            {
-              "condition": "!(UITests)",
-              "exclude": 
-              [
-                  "integration-tests/**/*",
-                  "docker-compose.tests.yml",
-                  "MakefileTesting"
-              ]
-            }
-        ]
+        {
+          "condition": "add-ui-tests",
+          "include": [
+            "integration-tests/**/*",
+            "docker-compose.tests.yml",
+            "MakefileTesting"
+          ],
+          "exclude": [
+            "Makefile"
+          ],
+          "rename": {
+            "MakefileTesting": "Makefile"
+          }
+        },
+        {
+          "condition": "!(add-ui-tests)",
+          "exclude": [
+            "integration-tests/**/*",
+            "docker-compose.tests.yml",
+            "MakefileTesting"
+          ]
+        }
+      ]
     }
-]
+  ]
 }
