@@ -49,6 +49,14 @@ oder wenn **Setup** und **Up** nacheinander ausgeführt werden sollen:
 ```zsh
 dotnet build /t:Start
 ```
+daraufhin wird der Docker Container zusammengebaut und gestartet.
+
+### Stoppen
+Das Anhalten des Docker Containers erfolgt über die Tastenkombination
+```zsh
+ctrl + C
+```
+oder im Docker Desktop Programm über das Stop-Symbol
 
 ### Aufräumen
 zum Entfernen und zurücksetzen des gesamten Docker-Projekts wird
