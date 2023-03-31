@@ -63,11 +63,7 @@ Damit das Template relativ schmerzlos vor einem Release getestet werden kann, si
 2. Repositoy:
 
     ```zsh
-    make template
-    ```
-
-    ```zsh
-    make install-template
+    dotnet build /t:Install-Template
     ```
 
 ## Template anwenden
@@ -89,7 +85,7 @@ Damit das Template relativ schmerzlos vor einem Release getestet werden kann, si
     Zu `My.Cool.Tutorial` navigieren.
 
     ```zsh
-    make run
+    dotnet build /t:Start
     ```
 
 Standardmäßig ist das Portal dann unter <http://localhost:8082/> zu erreichen. Wenn Sie einen anderen Portal-Port angeben muss dieser im angegeben Link ausgetauscht werden.
