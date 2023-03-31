@@ -1,14 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Project>
   <Target Name="Setup">
-    <Message Importance="High"
-      Text="ProjectName: $(MSBuildProjectName) dockerImage: $(DockerImageName)" />
+    <Message Importance="High" Text="Starting 'Setup'" />
     <CallTarget Targets="DockerBuild" />
   </Target>
   <Target Name="Up">
+    <Message Importance="High" Text="Starting 'Up'" />
     <CallTarget Targets="DockerComposeUp" />
   </Target>
   <Target Name="Start">
+    <Message Importance="High" Text="Starting Project with Docker" />
     <CallTarget Targets="DockerBuild" />
     <CallTarget Targets="DockerComposeUp" />
   </Target>
@@ -32,15 +33,15 @@
     <CallTarget Targets="DockerComposeBuild" />
   </Target>
   <Target Name="DockerComposeBuild">
-    <Message Importance="High" Text="Start of docker compose build" />
+    <Message Importance="High" Text="docker compose build:" />
     <Exec Command="docker compose build" WorkingDirectory="$(DockerRoot)" ConsoleToMSBuild="true" />
   </Target>
   <Target Name="DockerComposeUp">
-    <Message Importance="High" Text="Starting docker compose up" />
+    <Message Importance="High" Text="docker compose up:" />
     <Exec Command="docker compose up" WorkingDirectory="$(DockerRoot)" ConsoleToMSBuild="true" />
   </Target>
   <Target Name="TakeDockerDown">
-    <Message Importance="High" Text="Starting docker compose down" />
+    <Message Importance="High" Text="taking docker down:" />
     <Exec Command="docker compose down" WorkingDirectory="$(DockerRoot)" ConsoleToMSBuild="true" />
     <Exec Command="docker compose rm -f app" WorkingDirectory="$(DockerRoot)"
       ConsoleToMSBuild="true" />

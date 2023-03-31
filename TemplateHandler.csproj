@@ -15,7 +15,7 @@
     <ContentTargetFolders>content</ContentTargetFolders>
     <NoWarn>$(NoWarn);NU5128</NoWarn>
     <NoDefaultExcludes>true</NoDefaultExcludes>
-
+    <LocalNuget>artifacts</LocalNuget>
     <RepositoryUrl>https://github.com/5minds/Template.ProcessCube.Project</RepositoryUrl>
   </PropertyGroup>
 
@@ -25,5 +25,17 @@
       Exclude="Template.ProcessCube.Project\**\bin\**;Template.ProcessCube.Project\**\obj\**;Template.ProcessCube.Project\**\node_modules\**"/>
     <Compile Remove="**\*" />
   </ItemGroup>
-
+  <Target Name="Template">
+    <Message Importance="High" Text="Create Template in $(LocalNuget):" />
+    <RemoveDir Directories="$(LocalNuget)" />
+    <Exec Command="dotnet pack -o $(LocalNuget)"  ConsoleToMSBuild="true" />
+  </Target>
+  <Target Name="Uninstall-Template">
+    <Exec Command="dotnet new uninstall Template.ProcessCube.Project" ConsoleToMSBuild="true" />
+  </Target>
+  <Target Name="Install-Template">
+    <CallTarget Targets="Template" />
+    <CallTarget Targets="Uninstall-Template" />
+    <Exec Command="dotnet new install $(LocalNuget)/*.nupkg"  ConsoleToMSBuild="true" />
+  </Target>
 </Project>
