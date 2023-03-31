@@ -1,0 +1,14 @@
+<Project>
+    <PropertyGroup>
+        <!-- SpaYarp configuration -->
+        <SpaRoot>frontend\</SpaRoot>
+        <!-- TARGET Properties-->
+        <PackageLockJsonFile>frontend\package-lock.json</PackageLockJsonFile>
+        <NodeModulesPath>frontend\node_modules</NodeModulesPath>
+        <AtlasEngineDbFile>../../.processcube/engine/db/atlasengine.sqlite</AtlasEngineDbFile>
+        <AppName>$(MSBuildProjectName)</AppName>
+        <DockerRoot>../../</DockerRoot>
+        <DockerImageName>$(MSBuildProjectName.ToLower())</DockerImageName>
+        <SpaClientUrl>http://frontend:3000</SpaClientUrl>
+    </PropertyGroup>
+</Project>
