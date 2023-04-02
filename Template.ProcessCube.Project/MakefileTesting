@@ -15,9 +15,14 @@ build: npm-install
 up:
 	docker compose up
 
-test: npm-install
+test: build-test up-test
+
+build-test: npm-install
 	npm --prefix ./apps/Template.ProcessCube.Project/frontend run build
+	echo ${GITHUB_PAT} | docker login ghcr.io -u ${GITHUB_USERNAME} --password-stdin
 	docker compose -f docker-compose.yml -f docker-compose.tests.yml build
+
+up-test:
 	docker compose -f docker-compose.yml -f docker-compose.tests.yml up --abort-on-container-exit
 
 cleanup-testresults:
