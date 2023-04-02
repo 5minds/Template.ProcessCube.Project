@@ -99,3 +99,11 @@ Damit das Template relativ schmerzlos vor einem Release getestet werden kann, si
 Standardmäßig ist das Portal dann unter <http://localhost:8082/> zu erreichen. Wenn Sie einen anderen Portal-Port angeben muss dieser im angegeben Link ausgetauscht werden.
 
 Selbiges gilt für den Port der Engine. Standardmäßig ist die Engine unter <http://localhost:8000/> zu erreichen.
+
+## Template veröffentlichen
+
+Wurde am Template entwickelt und eine es will eine neue Version des Templates veröffentlicht werden, müssen bestimmte Dinge beachtet werden.
+
+Klassischerweise werden neue Template Versionen durch die [Github-CI](.github/workflows/publish_template.yml) automatisch verpackt und auf GitHub hochgeladen.
+Dies geschieht jedes Mal, wenn auf `main` oder `develop` gepushed wird, beispielsweise in Form eines Merges eines Feature-Branches.
+Damit dies sauber vonstattengeht, muss die Paketversion des Templates in der globalen [.csproj](TemplateHandler.csproj) entsprechend erhöht werden.
