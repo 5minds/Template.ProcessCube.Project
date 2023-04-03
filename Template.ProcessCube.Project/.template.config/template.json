@@ -29,7 +29,7 @@
       "type": "parameter",
       "dataType": "bool",
       "defaultValue": "false",
-      "description": "Adds an ui-tests in project test projects."
+      "description": "Add UI tests to the project"
     }
   },
   "forms": {
@@ -64,8 +64,6 @@
         {
           "condition": "add-ui-tests",
           "include": [
-            "integration-tests/**/*",
-            "docker-compose.tests.yml",
             "MakefileTesting"
           ],
           "exclude": [
