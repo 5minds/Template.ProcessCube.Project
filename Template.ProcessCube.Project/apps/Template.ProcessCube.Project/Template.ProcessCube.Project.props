@@ -8,7 +8,7 @@
         <AtlasEngineDbFile>../../.processcube/engine/db/atlasengine.sqlite</AtlasEngineDbFile>
         <AppName>$(MSBuildProjectName)</AppName>
         <DockerRoot>../../</DockerRoot>
-        <DockerImageName>$(MSBuildProjectName.ToLower())</DockerImageName>
+        <DockerImageName>$(MSBuildProjectName.ToLower().Replace(".","_"))</DockerImageName>
         <SpaClientUrl>http://frontend:3000</SpaClientUrl>
     </PropertyGroup>
 </Project>

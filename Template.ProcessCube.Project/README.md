@@ -1,6 +1,6 @@
 # Template.ProcessCube.Project
-Nach dem Erzeugen eines neuen Templates, kann dieses Bearbeitet werden
-## Grundvorraussetzungen
+
+## Grundvoraussetzungen
 
 ### Docker
 
@@ -12,32 +12,43 @@ Nach dem Erzeugen eines neuen Templates, kann dieses Bearbeitet werden
 
 ### Node.js
 
-Um das Projekt starten zu können ist die Installation von Node.js vorrausgesetzt, welches von [der offiziellen Webseite](https://nodejs.org/en/download/)
+Um das Projekt starten zu können ist die Installation von Node.js vorausgesetzt, welches von [der offiziellen Webseite](https://nodejs.org/en/download/)
 heruntergeladen werden kann.
 
 ## Build und Start
-Dieser Abschnitt zeigt die Grundlegenden Befehle, die zum Starten des Projekts notwendig sind:
+
+Dieser Abschnitt zeigt die Grundlegenden Befehle, die zum Starten des Projekts notwendig sind.
 
 ### Basic Build
-Wenn nur ein csproj in der Solution enthalten ist, dann kann Projekt innerhalb der Solution gebaut werden mit
+
+Wenn nur ein csproj in der Solution enthalten ist, dann kann das Projekt innerhalb der Solution gebaut werden mit
 
 ```zsh
 dotnet build
 ```
+
 , denn es wird dann das einzige Projekt in der Solution gebaut.
 
 Bei mehreren Projekten gehe in den Ordner apps/Template.ProcessCube.Project/
+
 ```zsh
 cd apps/Template.ProcessCube.Project/
 ```
 
-### Docker erzeugen
-Um Docker und NPM Pakete vorzubereiten rufe das Setup Target auf:
+### Build
+
+Folgender Befehl:
+
+- Installiert die NPM-Pakete
+- Baut das Frontend
+- Baut/pulled die benötigten Docker-Images
+
 ```zsh
 dotnet build /t:Setup
 ```
 
-### Projekt/Docker starten
+### Start
+
 Zum Starten des Projekts kann `docker compose up` aufgerufen werden, **nachdem** das Setup erfolgreich ausgeführt wurde.
 Zur Vereinheitlichung und Vereinfachung wird das Projekt gestartet mit:
 
@@ -46,21 +57,22 @@ dotnet build /t:Up
 ```
 
 oder wenn **Setup** und **Up** nacheinander ausgeführt werden sollen:
+
 ```zsh
 dotnet build /t:Start
 ```
+
 daraufhin wird der Docker Container zusammengebaut und gestartet.
 
-### Stoppen
-Das Anhalten des Docker Containers erfolgt über die Tastenkombination
-```zsh
-ctrl + C
-```
-oder im Docker Desktop Programm über das Stop-Symbol
-
 ### Aufräumen
-zum Entfernen und zurücksetzen des gesamten Docker-Projekts wird
+
+Folgender Befehl:
+
+- Räumt die Docker-Container ab
+- Löscht das Docker-Image der App
+- Löscht die `node_modules` und die `package-lock.json` im Frontend
+- Löscht die Datenbank der 5Minds Engine
+
 ```zsh
-dotnet build /t:Clear
+dotnet build /t:Clean
 ```
-aufgerufen.

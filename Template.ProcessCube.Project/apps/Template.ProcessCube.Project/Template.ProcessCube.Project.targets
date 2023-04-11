@@ -1,32 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Project>
+  <Target Name="Start">
+    <Message Importance="High" Text="Starting Project with Docker" />
+    <CallTarget Targets="BuildApp" />
+    <CallTarget Targets="DockerComposeUp" />
+  </Target>
   <Target Name="Setup">
     <Message Importance="High" Text="Starting 'Setup'" />
-    <CallTarget Targets="DockerBuild" />
+    <CallTarget Targets="BuildApp" />
   </Target>
   <Target Name="Up">
     <Message Importance="High" Text="Starting 'Up'" />
     <CallTarget Targets="DockerComposeUp" />
   </Target>
-  <Target Name="Start">
-    <Message Importance="High" Text="Starting Project with Docker" />
-    <CallTarget Targets="DockerBuild" />
-    <CallTarget Targets="DockerComposeUp" />
-  </Target>
   <Target Name="Clear">
     <Message Importance="High" Text="Starting Clean" />
     <!-- docker compose down  & docker compose rm -f app-->
-    <CallTarget Targets="TakeDockerDown" />
+    <CallTarget Targets="DockerComposeDown" />
     <CallTarget Targets="RemoveDockerImage" />
     <!-- Clear NPM files and Folders -->
-    <CallTarget Targets="NpmClear" />
+    <CallTarget Targets="NpmClean" />
     <CallTarget Targets="DeleteEngineDB" />
   </Target>
   <!--
        SubTargets that can be called by Standard Targets
     -->
   <!-- DOCKER SUBTARGETS:-->
-  <Target Name="DockerBuild">
+  <Target Name="BuildApp">
     <CallTarget Targets="NpmInstall" />
     <!-- ? npm  run build ? -->
     <CallTarget Targets="NpmRunBuild" />
@@ -40,8 +40,8 @@
     <Message Importance="High" Text="docker compose up:" />
     <Exec Command="docker compose up" WorkingDirectory="$(DockerRoot)" ConsoleToMSBuild="true" />
   </Target>
-  <Target Name="TakeDockerDown">
-    <Message Importance="High" Text="taking docker down:" />
+  <Target Name="DockerComposeDown">
+    <Message Importance="High" Text="docker compose down:" />
     <Exec Command="docker compose down" WorkingDirectory="$(DockerRoot)" ConsoleToMSBuild="true" />
     <Exec Command="docker compose rm -f app" WorkingDirectory="$(DockerRoot)"
       ConsoleToMSBuild="true" />
@@ -69,7 +69,7 @@
   <Target Name="NpmRunBuild">
     <Exec Command="npm run build" WorkingDirectory="$(SpaRoot)" ConsoleToMSBuild="true" />
   </Target>
-  <Target Name="NpmClear">
+  <Target Name="NpmClean">
     <RemoveDir Directories="$(NodeModulesPath)" />
     <Delete Files="$(PackageLockJsonFile)" />
   </Target>

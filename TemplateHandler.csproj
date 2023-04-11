@@ -25,17 +25,17 @@
       Exclude="Template.ProcessCube.Project\**\bin\**;Template.ProcessCube.Project\**\obj\**;Template.ProcessCube.Project\**\node_modules\**"/>
     <Compile Remove="**\*" />
   </ItemGroup>
+  <Target Name="InstallTemplate">
+    <CallTarget Targets="Template" />
+    <CallTarget Targets="UninstallTemplate" />
+    <Exec Command="dotnet new --install $(LocalNuget)/*.nupkg"  ConsoleToMSBuild="true" />
+  </Target>
   <Target Name="Template">
     <Message Importance="High" Text="Create Template in $(LocalNuget):" />
     <RemoveDir Directories="$(LocalNuget)" />
     <Exec Command="dotnet pack -o $(LocalNuget)"  ConsoleToMSBuild="true" />
   </Target>
-  <Target Name="Uninstall-Template">
-    <Exec Command="dotnet new uninstall Template.ProcessCube.Project" ConsoleToMSBuild="true" />
-  </Target>
-  <Target Name="Install-Template">
-    <CallTarget Targets="Template" />
-    <CallTarget Targets="Uninstall-Template" />
-    <Exec Command="dotnet new install $(LocalNuget)/*.nupkg"  ConsoleToMSBuild="true" />
+  <Target Name="UninstallTemplate">
+    <Exec Command="dotnet new --uninstall Template.ProcessCube.Project" ConsoleToMSBuild="true" />
   </Target>
 </Project>
