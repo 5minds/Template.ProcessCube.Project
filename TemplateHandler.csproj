@@ -5,7 +5,7 @@
     <PackageVersion>2.2.1</PackageVersion>
     <PackageId>Template.ProcessCube.Project</PackageId>
     <Title>Project Template</Title>
-    <Authors>Jeremy Hill</Authors>
+    <Authors>Jeremy Hill, David Wehmeyer</Authors>
     <Description>Template für eine einfache .NET-Anwendung, welche den ProcessCube integriert.</Description>
     <PackageTags>dotnet-new;templates;</PackageTags>
     <TargetFramework>net6.0</TargetFramework>
