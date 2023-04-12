@@ -1,6 +1,7 @@
 version: '3.5'
 services:
   test:
+    container_name: source_name_lower_docker_tests
     image: ghcr.io/5minds/testimage:0.0.1
     depends_on:
       - app

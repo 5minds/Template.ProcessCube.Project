@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Project>
-  <Import Project="$(MSBuildProjectName).targets" Condition="Exists('$(MSBuildProjectName).targets')" />
 
   <!-- Main Targets -->
   <Target Name="Test">
@@ -10,14 +9,17 @@
   </Target>
   <Target Name="BuildTest">
     <Message Importance="High" Text="Building Test"/>
+    <CallTarget Targets="BuildApp" />
     <CallTarget Targets="NpmRunBuild"/>
-    <CallTarget Targets="DockerLogin"/>
     <CallTarget Targets="DockerComposeTestBuild"/>
   </Target>
   <Target Name="TestUp">
     <CallTarget Targets="DockerComposeTestUp"/>
   </Target>
-
+  <Target Name="TestClean">
+    <RemoveDir Directories="$(TestResultsPath)" />
+    <!-- ToDo: Remove Docker image of TestContainer -->
+  </Target>
   <!-- Sub Targets to be Called from Main Targets-->
   <Target Name="DockerComposeTestBuild">
     <Message Importance="High" Text="Docker Compose Build 'Base + Tests'"/>
@@ -27,21 +29,4 @@
     <Message Importance="High" Text="Docker Compose Up 'Base + Tests'"/>
     <Exec Command="docker compose -f docker-compose.yml -f docker-compose.tests.yml up --abort-on-container-exit" WorkingDirectory="$(DockerRoot)" ConsoleToMSBuild="true" />
   </Target>
-  <Target Name="DockerLogin">
-    <Exec Command="echo ${GITHUB_PAT} | docker login ghcr.io -u ${GITHUB_USERNAME} --password-stdin"/>
-  </Target>
 </Project>
-
-
-<!-- test: build-test up-test
-
-build-test: npm-install
-	npm -prefix ./apps/Template.ProcessCube.Project/frontend run build
-	echo ${GITHUB_PAT} | docker login ghcr.io -u ${GITHUB_USERNAME} -password-stdin
-	docker compose -f docker-compose.yml -f docker-compose.tests.yml build
-
-up-test:
-	docker compose -f docker-compose.yml -f docker-compose.tests.yml up -abort-on-container-exit
-
-cleanup-testresults:
-	rm -rf testresults/ -->

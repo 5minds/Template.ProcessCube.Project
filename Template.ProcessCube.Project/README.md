@@ -21,30 +21,21 @@ Dieser Abschnitt zeigt die Grundlegenden Befehle, die zum Starten des Projekts n
 
 ### Basic Build
 
-Wenn nur ein csproj in der Solution enthalten ist, dann kann das Projekt innerhalb der Solution gebaut werden mit
-
 ```zsh
-dotnet build
-```
-
-, denn es wird dann das einzige Projekt in der Solution gebaut.
-
-Bei mehreren Projekten gehe in den Ordner apps/Template.ProcessCube.Project/
-
-```zsh
-cd apps/Template.ProcessCube.Project/
+dotnet msbuild apps/Template.ProcessCube.Project
 ```
 
 ### Build
 
 Folgender Befehl:
 
+- Baut das apps/Template.ProcessCube.Project Projekt
 - Installiert die NPM-Pakete
 - Baut das Frontend
 - Baut/pulled die benötigten Docker-Images
 
 ```zsh
-dotnet build /t:Setup
+dotnet msbuild -t:Setup
 ```
 
 ### Start
@@ -53,13 +44,13 @@ Zum Starten des Projekts kann `docker compose up` aufgerufen werden, **nachdem**
 Zur Vereinheitlichung und Vereinfachung wird das Projekt gestartet mit:
 
 ```zsh
-dotnet build /t:Up
+dotnet msbuild -t:Up
 ```
 
 Wenn **Setup** und **Up** nacheinander ausgeführt werden sollen:
 
 ```zsh
-dotnet build /t:Start
+dotnet msbuild -t:Start
 ```
 
 Daraufhin wird der Docker Container zusammengebaut und gestartet.
@@ -73,6 +64,6 @@ Folgender Befehl:
 - Löscht die `node_modules` und die `package-lock.json` im Frontend
 - Löscht die Datenbank der 5Minds Engine
 
-```zsh
-dotnet build /t:Clean
-```
+  ```zsh
+  dotnet clean
+  ```

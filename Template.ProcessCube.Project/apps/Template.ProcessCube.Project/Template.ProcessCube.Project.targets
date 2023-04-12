@@ -15,20 +15,18 @@
   </Target>
   <Target Name="Clear">
     <Message Importance="High" Text="Starting Clean" />
-    <!-- docker compose down  & docker compose rm -f app-->
     <CallTarget Targets="DockerComposeDown" />
     <CallTarget Targets="RemoveDockerImage" />
-    <!-- Clear NPM files and Folders -->
     <CallTarget Targets="NpmClean" />
     <CallTarget Targets="DeleteEngineDB" />
   </Target>
-  <!--
-       SubTargets that can be called by Standard Targets
-    -->
+
+  <!-- SubTargets that can be called by Standard Targets  -->
+
   <!-- DOCKER SUB-TARGETS:-->
   <Target Name="BuildApp">
+    <MSBuild Projects="$(MSBuildProjectFile)" Targets="Build" />
     <CallTarget Targets="NpmInstall" />
-    <!-- ? npm  run build ? -->
     <CallTarget Targets="NpmRunBuild" />
     <CallTarget Targets="DockerComposeBuild" />
   </Target>
