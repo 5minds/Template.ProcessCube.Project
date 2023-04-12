@@ -13,7 +13,7 @@
     <Message Importance="High" Text="Starting 'Up'" />
     <CallTarget Targets="DockerComposeUp" />
   </Target>
-  <Target Name="Clear">
+  <Target Name="Clear" AfterTargets="Clean">
     <Message Importance="High" Text="Starting Clean" />
     <CallTarget Targets="DockerComposeDown" />
     <CallTarget Targets="RemoveDockerImage" />
