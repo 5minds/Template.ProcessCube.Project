@@ -25,7 +25,7 @@
   <!--
        SubTargets that can be called by Standard Targets
     -->
-  <!-- DOCKER SUBTARGETS:-->
+  <!-- DOCKER SUB-TARGETS:-->
   <Target Name="BuildApp">
     <CallTarget Targets="NpmInstall" />
     <!-- ? npm  run build ? -->
@@ -62,7 +62,7 @@
       WorkingDirectory="$(DockerRoot)"
       ConsoleToMSBuild="true" />
   </Target>
-  <!-- NPM SUBTARTGETS -->
+  <!-- NPM SUB-TARGETS -->
   <Target Name="NpmInstall">
     <Exec Command="npm install" WorkingDirectory="$(SpaRoot)" ConsoleToMSBuild="true" />
   </Target>

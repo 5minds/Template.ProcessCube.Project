@@ -56,13 +56,13 @@ Zur Vereinheitlichung und Vereinfachung wird das Projekt gestartet mit:
 dotnet build /t:Up
 ```
 
-oder wenn **Setup** und **Up** nacheinander ausgeführt werden sollen:
+Wenn **Setup** und **Up** nacheinander ausgeführt werden sollen:
 
 ```zsh
 dotnet build /t:Start
 ```
 
-daraufhin wird der Docker Container zusammengebaut und gestartet.
+Daraufhin wird der Docker Container zusammengebaut und gestartet.
 
 ### Aufräumen
 

@@ -64,7 +64,7 @@ Damit das Template relativ schmerzlos vor einem Release getestet werden kann, si
 
     ```zsh
     dotnet build
-    dotnet build /t:Install-Template
+    dotnet build /t:InstallTemplate
     ```
 
 ## Template anwenden

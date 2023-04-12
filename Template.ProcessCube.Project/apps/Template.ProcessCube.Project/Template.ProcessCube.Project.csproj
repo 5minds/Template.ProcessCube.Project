@@ -25,6 +25,7 @@
   </ItemGroup>
 
   <Import Project="$(MSBuildProjectName).targets" Condition="Exists('$(MSBuildProjectName).targets')" />
+  <Import Project="$(MSBuildProjectName).ui-tests.targets" Condition="Exists('$(MSBuildProjectName).ui-tests.targets')" />
   <Target Name="DebugEnsureNodeEnv" BeforeTargets="Build" Condition=" '$(Configuration)' == 'Debug' And !Exists('$(SpaRoot)node_modules') ">
     <!-- Ensure Node.js is installed -->
     <Exec Command="node --version" ContinueOnError="true">
