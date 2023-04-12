@@ -17,6 +17,7 @@
     <CallTarget Targets="DockerComposeTestUp"/>
   </Target>
   <Target Name="TestClean">
+    <Message Importance="High" Text="Cleanup TestResults"/>
     <RemoveDir Directories="$(TestResultsPath)" />
     <!-- ToDo: Remove Docker image of TestContainer -->
   </Target>

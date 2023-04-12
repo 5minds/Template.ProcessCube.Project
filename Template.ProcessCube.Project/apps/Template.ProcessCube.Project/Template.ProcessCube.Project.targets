@@ -1,5 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Project>
+  <!-- Main Targets: -->
+  <!-- EXAMPLE:
+    Call from Project or SolutionFolder:
+    dotnet msbuild -t:Start
+  -->
   <Target Name="Start">
     <Message Importance="High" Text="Starting Project with Docker" />
     <CallTarget Targets="BuildApp" />
@@ -14,7 +19,7 @@
     <CallTarget Targets="DockerComposeUp" />
   </Target>
   <Target Name="Clear" AfterTargets="Clean">
-    <Message Importance="High" Text="Starting Clean" />
+    <Message Importance="High" Text="Starting Clean of App $(MSBuildProjectName)" />
     <CallTarget Targets="DockerComposeDown" />
     <CallTarget Targets="RemoveDockerImage" />
     <CallTarget Targets="NpmClean" />
@@ -22,14 +27,13 @@
   </Target>
 
   <!-- SubTargets that can be called by Standard Targets  -->
-
-  <!-- DOCKER SUB-TARGETS:-->
   <Target Name="BuildApp">
     <MSBuild Projects="$(MSBuildProjectFile)" Targets="Build" />
     <CallTarget Targets="NpmInstall" />
     <CallTarget Targets="NpmRunBuild" />
     <CallTarget Targets="DockerComposeBuild" />
   </Target>
+  <!-- DOCKER SUB-TARGETS:-->
   <Target Name="DockerComposeBuild">
     <Message Importance="High" Text="docker compose build:" />
     <Exec Command="docker compose build" WorkingDirectory="$(DockerRoot)" ConsoleToMSBuild="true" />
