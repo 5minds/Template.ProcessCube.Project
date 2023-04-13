@@ -19,7 +19,7 @@
   <Target Name="TestClean">
     <Message Importance="High" Text="Cleanup TestResults"/>
     <RemoveDir Directories="$(TestResultsPath)" />
-    <!-- ToDo: Remove Docker image of TestContainer -->
+     <CallTarget Targets="RemoveTestContainer"/>
   </Target>
   <!-- Sub Targets to be Called from Main Targets-->
   <Target Name="DockerComposeTestBuild">
@@ -29,5 +29,9 @@
   <Target Name="DockerComposeTestUp">
     <Message Importance="High" Text="Docker Compose Up 'Base + Tests'"/>
     <Exec Command="docker compose -f docker-compose.yml -f docker-compose.tests.yml up --abort-on-container-exit" WorkingDirectory="$(DockerRoot)" ConsoleToMSBuild="true" />
+  </Target>
+  <Target Name="RemoveTestContainer">
+    <Message Importance="High" Text="docker container rm $(DockerImageName)_tests"/>
+    <Exec Command="docker container rm $(DockerImageName)_tests" WorkingDirectory="$(DockerRoot)" ConsoleToMSBuild="true" />
   </Target>
 </Project>
