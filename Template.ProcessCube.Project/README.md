@@ -22,7 +22,9 @@ Dieser Abschnitt zeigt die Grundlegenden Befehle, die zum Starten des Projekts n
 ### Basic Build
 
 ```zsh
-dotnet msbuild apps/Template.ProcessCube.Project
+dotnet build
+# bzw:
+dotnet build apps/Template.ProcessCube.Project
 ```
 
 ### Build
@@ -57,13 +59,16 @@ Daraufhin wird der Docker Container zusammengebaut und gestartet.
 
 ### Aufräumen
 
+Das Aufräumen der App wird automatisch nach einem Clean des Projektes durchgeführt.
+
 Folgender Befehl:
 
+- Löscht die Ausgabe der vorigen Builds
 - Räumt die Docker-Container ab
 - Löscht das Docker-Image der App
 - Löscht die `node_modules` und die `package-lock.json` im Frontend
 - Löscht die Datenbank der 5Minds Engine
 
-  ```zsh
-  dotnet clean
-  ```
+```zsh
+dotnet clean
+```
