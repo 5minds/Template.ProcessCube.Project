@@ -115,11 +115,7 @@ dotnet msbuild -t:TestClean
 ## UI-Tests
 
 Wenn du die manuelle Integration des Robot Frameworks noch einmal genauer erklärt haben möchtest,
-<<<<<<< HEAD
-schau dir den Artikel [Getting Started - Robot Framework](https://processcube-kurs.dev.5minds.cloud/docs/advanced/09_getting_started_robot_framework) im ProcessCube Kurs an
-=======
 schau dir den Artikel [Getting Started - Robot Framework](https://processcube-kurs.dev.5minds.cloud/docs/advanced/09_getting_started_robot_framework) im ProcessCube Kurs an.
->>>>>>> 394d61b (ADD: Append Readme Information for UI-Tests)
 
 Wenn du jetzt wissen willst, wie man Tests schreibt, schau dir die Master Class zum Thema [Robot Framework](https://processcube-kurs.dev.5minds.cloud/docs/masterClass/robot_framework) an.
 ---#endif
