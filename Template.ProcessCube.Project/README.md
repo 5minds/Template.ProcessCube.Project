@@ -78,11 +78,12 @@ dotnet clean
 ```
 
 Bei einem folgenden `Setup` werden **alle** Dateien neu geladen und gebaut.
+
 ---#if (add-ui-tests)
 
 ## UI-Test mit Robot-Framework
 
-Grundlegende UI-Tests sind in diesem Projekt bereits vorbereitet.
+Diese liegen im Ordner `integration-tests` und benutzen das [Robot Framework](https://robotframework.org/).
 Diese liegen im Ordner `./integration-tests` und benutzen das Robot Framework.
 
 Das Test-Framework wird über das Docker Image `5minds/testimage` über die `docker-compose.tests.yml` eingebunden.
@@ -99,13 +100,13 @@ Zum Aufrufen gehen wir in das Projektverzeichnis im Terminal.
 dotnet msbuild -t:Test
 ```
 
-Jetzt sollten die UI-Tests durchlaufen und ein Result liefern.
+Jetzt sollten die UI-Tests durchlaufen und ein Ergebnis liefern.
 
 ### Bereinigung
 
 Folgender Befehl
 
-- Löscht den zuvor erstellten Ordner mit den Testergebnissen /testresults
+- Löscht den zuvor erstellten Ordner mit den Testergebnissen `testresults`
 - Entfernt den im Docker Projekt-Container angelegten Test-Container
 
 ```zsh

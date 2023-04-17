@@ -16,10 +16,10 @@
   <Target Name="TestUp">
     <CallTarget Targets="DockerComposeTestUp"/>
   </Target>
-  <Target Name="TestClean">
+  <Target Name="TestClean" AfterTargets="Clean">
     <Message Importance="High" Text="Cleanup TestResults"/>
     <RemoveDir Directories="$(TestResultsPath)" />
-     <CallTarget Targets="RemoveTestContainer"/>
+    <CallTarget Targets="RemoveTestContainer"/>
   </Target>
   <!-- Sub Targets to be Called from Main Targets-->
   <Target Name="DockerComposeTestBuild">
