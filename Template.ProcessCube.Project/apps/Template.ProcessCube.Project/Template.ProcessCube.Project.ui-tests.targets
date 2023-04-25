@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project>
+
+  <!-- Main Targets -->
+  <Target Name="Test">
+    <Message Importance="High" Text="Starting Project with Docker" />
+	  <CallTarget Targets="BuildTest" />
+    <CallTarget Targets="TestUp" />
+  </Target>
+  <Target Name="BuildTest">
+    <Message Importance="High" Text="Building Test"/>
+    <CallTarget Targets="BuildApp" />
+    <CallTarget Targets="NpmRunBuild"/>
+    <CallTarget Targets="DockerComposeTestBuild"/>
+  </Target>
+  <Target Name="TestUp">
+    <CallTarget Targets="DockerComposeTestUp"/>
+  </Target>
+  <Target Name="TestClean" AfterTargets="Clean">
+    <Message Importance="High" Text="Cleanup TestResults"/>
+    <RemoveDir Directories="$(TestResultsPath)" />
+    <CallTarget Targets="RemoveTestContainer"/>
+  </Target>
+  <!-- Sub Targets to be Called from Main Targets-->
+  <Target Name="DockerComposeTestBuild">
+    <Message Importance="High" Text="Docker Compose Build 'Base + Tests'"/>
+    <Exec Command="docker compose -f docker-compose.yml -f docker-compose.tests.yml build" WorkingDirectory="$(DockerRoot)" ConsoleToMSBuild="true" />
+  </Target>
+  <Target Name="DockerComposeTestUp">
+    <Message Importance="High" Text="Docker Compose Up 'Base + Tests'"/>
+    <Exec Command="docker compose -f docker-compose.yml -f docker-compose.tests.yml up --abort-on-container-exit" WorkingDirectory="$(DockerRoot)" ConsoleToMSBuild="true" />
+  </Target>
+  <Target Name="RemoveTestContainer">
+    <Message Importance="High" Text="docker container rm $(DockerImageName)_tests"/>
+    <Exec Command="docker container rm $(DockerImageName)_tests" WorkingDirectory="$(DockerRoot)" ConsoleToMSBuild="true" />
+  </Target>
+</Project>

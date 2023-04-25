@@ -11,9 +11,9 @@ In dieser `template.json` sind sämtliche notwendige Informationen, wie Author, 
 
 Das Template ist schließlich als NuGet-Paket auf GitHub unter [https://nuget.pkg.github.com/5minds/index.json](https://nuget.pkg.github.com/5minds/index.json) gepushed worden.
 
-Folgend werden Vorraussetzungen, Installation und Anwendung des Templates erläutert.
+Folgend werden Voraussetzungen, Installation und Anwendung des Templates erläutert.
 
-## Grundvorraussetzungen
+## Grundvoraussetzungen
 
 ### Docker
 
@@ -25,7 +25,7 @@ Folgend werden Vorraussetzungen, Installation und Anwendung des Templates erläu
 
 ### Node.js
 
-Um das Projekt starten zu können ist die Installation von Node.js vorrausgesetzt, welches von [der offiziellen Webseite](https://nodejs.org/en/download/)
+Um das Projekt starten zu können ist die Installation von Node.js vorausgesetzt, welches von [der offiziellen Webseite](https://nodejs.org/en/download/)
 heruntergeladen werden kann.
 
 ## NuGet-Source hinzufügen
@@ -60,14 +60,10 @@ Damit das Template relativ schmerzlos vor einem Release getestet werden kann, si
     dotnet new -i Template.ProcessCube.Project
     ```
 
-2. Repositoy:
+2. Repository:
 
     ```zsh
-    make template
-    ```
-
-    ```zsh
-    make install-template
+    dotnet msbuild -t:InstallTemplate
     ```
 
 ## Template anwenden
@@ -93,7 +89,7 @@ Damit das Template relativ schmerzlos vor einem Release getestet werden kann, si
     Zu `My.Cool.Tutorial` navigieren.
 
     ```zsh
-    make run
+    dotnet msbuild -t:Start
     ```
 
 Standardmäßig ist das Portal dann unter <http://localhost:8082/> zu erreichen. Wenn Sie einen anderen Portal-Port angeben muss dieser im angegeben Link ausgetauscht werden.

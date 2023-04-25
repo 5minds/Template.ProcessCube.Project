@@ -62,26 +62,31 @@
     {
       "modifiers": [
         {
-          "condition": "add-ui-tests",
-          "include": [
-            "MakefileTesting"
-          ],
-          "exclude": [
-            "Makefile"
-          ],
-          "rename": {
-            "MakefileTesting": "Makefile"
-          }
-        },
-        {
           "condition": "!(add-ui-tests)",
           "exclude": [
             "integration-tests/**/*",
             "docker-compose.tests.yml",
-            "MakefileTesting"
+            "apps/Template.ProcessCube.Project/Template.ProcessCube.Project.ui-tests.targets"
           ]
         }
       ]
     }
-  ]
+  ],
+  "SpecialCustomOperations": {
+    "**/*.md": {
+      "operations": [
+        {
+          "type": "conditional",
+          "configuration": {
+            "if": ["---#if"],
+            "else": ["---#else"],
+            "elseif": ["---#elseif", "---#elif"],
+            "endif": ["---#endif"],
+            "trim" : "true",
+            "wholeLine": "true"
+          }
+        }
+      ]
+    }
+  }
 }

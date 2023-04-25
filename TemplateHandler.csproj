@@ -2,10 +2,10 @@
 
   <PropertyGroup>
     <PackageType>Template</PackageType>
-    <PackageVersion>2.2.0</PackageVersion>
+    <PackageVersion>2.3.0</PackageVersion>
     <PackageId>Template.ProcessCube.Project</PackageId>
     <Title>Project Template</Title>
-    <Authors>Jeremy Hill</Authors>
+    <Authors>Jeremy Hill, David Wehmeyer</Authors>
     <Description>Template für eine einfache .NET-Anwendung, welche den ProcessCube integriert.</Description>
     <PackageTags>dotnet-new;templates;</PackageTags>
     <TargetFramework>net6.0</TargetFramework>
@@ -15,7 +15,7 @@
     <ContentTargetFolders>content</ContentTargetFolders>
     <NoWarn>$(NoWarn);NU5128</NoWarn>
     <NoDefaultExcludes>true</NoDefaultExcludes>
-
+    <LocalNuget>artifacts</LocalNuget>
     <RepositoryUrl>https://github.com/5minds/Template.ProcessCube.Project</RepositoryUrl>
   </PropertyGroup>
 
@@ -25,5 +25,17 @@
       Exclude="Template.ProcessCube.Project\**\bin\**;Template.ProcessCube.Project\**\obj\**;Template.ProcessCube.Project\**\node_modules\**"/>
     <Compile Remove="**\*" />
   </ItemGroup>
-
+  <Target Name="InstallTemplate">
+    <CallTarget Targets="Template" />
+    <CallTarget Targets="UninstallTemplate" />
+    <Exec Command="dotnet new --install $(LocalNuget)/*.nupkg"  ConsoleToMSBuild="true" />
+  </Target>
+  <Target Name="Template">
+    <Message Importance="High" Text="Create Template in $(LocalNuget):" />
+    <RemoveDir Directories="$(LocalNuget)" />
+    <Exec Command="dotnet pack -o $(LocalNuget)"  ConsoleToMSBuild="true" />
+  </Target>
+  <Target Name="UninstallTemplate">
+    <Exec Command="dotnet new --uninstall Template.ProcessCube.Project" ConsoleToMSBuild="true" />
+  </Target>
 </Project>
