@@ -4,6 +4,7 @@
     <PackageType>Template</PackageType>
     <PackageVersion>2.3.1</PackageVersion>
     <PackageId>Template.ProcessCube.Project</PackageId>
+    <PackageLicenseFile>LICENSE.txt</PackageLicenseFile>
     <Title>Project Template</Title>
     <Authors>Jeremy Hill, David Wehmeyer</Authors>
     <Description>Template für eine einfache .NET-Anwendung, welche den ProcessCube integriert.</Description>
@@ -20,6 +21,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Include="LICENSE.txt" Pack="true" PackagePath="LICENSE.txt"/>
     <Content
       Include="Template.ProcessCube.Project\**\*"
       Exclude="Template.ProcessCube.Project\**\bin\**;Template.ProcessCube.Project\**\obj\**;Template.ProcessCube.Project\**\node_modules\**"/>
