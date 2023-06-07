@@ -479,6 +479,12 @@ video {
 .mt-8 {
   margin-top: 2rem;
 }
+.flex {
+  display: flex;
+}
+.justify-around {
+  justify-content: space-around;
+}
 .rounded-md {
   border-radius: 0.375rem;
 }

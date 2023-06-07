@@ -1,3 +1,4 @@
+import Link from 'next/link'
 import './styles/main.css'
 import { Inter } from 'next/font/google'
 
@@ -16,7 +17,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className='bg-slate-600'>
-        <nav className='text-4xl'>Navigation</nav>
+        <nav className='text-4xl flex justify-around'>
+          <Link className='mt-8 p-4 bg-lime-200 hover:bg-lime-300 active:bg-red-300 rounded-md drop-shadow-lg active:drop-shadow-none' href='/'>StartDialog</Link>
+          <Link className='mt-8 p-4 bg-lime-200 hover:bg-lime-300 active:bg-red-300 rounded-md drop-shadow-lg active:drop-shadow-none' href='/server'>Server</Link>
+        </nav>
         {children}
       </body>
     </html>
