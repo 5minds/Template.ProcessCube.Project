@@ -1,10 +1,12 @@
+'use client'
+
 import React from 'react';
 
 import { Identity } from '@atlas-engine/atlas_engine_client';
 import { StartDialogDisplayedCallback, StartDialogService } from '@atlas-engine-contrib/atlas-ui_sdk';
 
 import { Config } from '../config';
-import { ExampleStartDialog } from '../ExampleStartDialog';
+import ExampleStartdialog from '../ExampleStartDialog/ExampleStartdialog';
 
 
 export type DialogComponentDict = {
@@ -61,7 +63,7 @@ class StartDialogRenderer extends React.Component<StartDialogRendererProps, Star
   }
 
   private components: StartDialogComponentDict = {
-    ExampleStartDialog: ExampleStartDialog,
+    ExampleStartDialog: ExampleStartdialog,
   };
 
   public componentDidMount(): void {

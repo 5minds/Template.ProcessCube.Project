@@ -1,10 +1,11 @@
+'use client'
 import React from 'react';
 
 import { DataModels, Identity } from '@atlas-engine/atlas_engine_client';
 import { CustomFormService, FormState } from '@atlas-engine-contrib/atlas-ui_sdk';
 
 import { Config } from '../config';
-import { ExampleCustomForm } from '../ExampleCustomForm';
+import ExampleCustomForm from '../ExampleCustomForm/ExampleCustomForm';
 
 
 export type CustomFormProps = {

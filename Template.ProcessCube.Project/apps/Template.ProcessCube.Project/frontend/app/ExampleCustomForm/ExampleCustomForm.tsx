@@ -1,10 +1,8 @@
-import React from 'react';
-
-import { CustomFormProps } from '../DialogRenderer';
+'use client'
 
 import './ExampleCustomForm.css';
 
-export class ExampleCustomForm extends React.Component<CustomFormProps> {
+/* export class ExampleCustomForm extends React.Component<CustomFormProps> {
 
   constructor(props: any) {
     super(props);
@@ -23,8 +21,12 @@ export class ExampleCustomForm extends React.Component<CustomFormProps> {
     );
   }
 
-  private _handleFormSubmit(): void {
-    this.props.finishUserTask({});
-  }
+} */
 
+const ExampleCustomForm = () => {
+  return (
+    <div>ExampleCustomForm</div>
+  )
 }
+
+export default ExampleCustomForm
