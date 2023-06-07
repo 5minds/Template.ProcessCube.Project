@@ -11,7 +11,7 @@
     "watch:css": "postcss ./app/styles/globals.css -o ./app/styles/main.css"
   },
   "dependencies": {
-    "@atlas-engine-contrib/atlas-ui_sdk": "^3.0.0",
+    "@atlas-engine-contrib/atlas-ui_sdk": "3.1.0-alpha.2",
     "@atlas-engine/atlas_engine_client": "^4.2.5",
     "@types/node": "20.2.5",
     "@types/react": "18.2.8",

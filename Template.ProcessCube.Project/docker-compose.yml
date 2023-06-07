@@ -13,7 +13,7 @@ services:
       CONFIG_PATH: /etc/engine/config/config.json
 
   portal:
-    image: 5minds/portal:3.9.0-beta.1
+    image: 5minds/portal:3.12.0-beta.1
     volumes:
       - ./.processcube/portal/theme.css:/etc/portal/config/theme.css:ro
       - ./.processcube/portal/config.json:/etc/portal/config/config.json:ro
