@@ -1,31 +1,18 @@
 'use client'
 
+import { CustomFormProps } from '../DialogRenderer';
 import './ExampleCustomForm.css';
 
-/* export class ExampleCustomForm extends React.Component<CustomFormProps> {
+const ExampleCustomForm = (props: CustomFormProps) => {
+  console.log(props);
 
-  constructor(props: any) {
-    super(props);
-
-    this.state = {};
-  }
-
-  public render(): JSX.Element {
-    return (
-      <div className='test-class'>
-        <p>This is a custom-form.</p>
-        <button onClick={this._handleFormSubmit.bind(this)}>
-          Confirm
-        </button>
-      </div>
-    );
-  }
-
-} */
-
-const ExampleCustomForm = () => {
   return (
-    <div>ExampleCustomForm</div>
+    <>
+      <div>ExampleCustomForm</div>
+      <button onClick={() => props.finishUserTask({})}>
+        Confirm
+      </button>
+    </>
   )
 }
 
