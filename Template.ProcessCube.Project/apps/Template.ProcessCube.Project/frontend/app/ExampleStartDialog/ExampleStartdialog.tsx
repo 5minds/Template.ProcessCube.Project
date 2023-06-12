@@ -4,6 +4,7 @@ import React from 'react';
 import { StartDialogProps } from '../DialogRenderer';
 
 const ExampleStartdialog = (props: StartDialogProps) => {
+
   return (
     <>
       <div>ExampleStartdialog</div>
