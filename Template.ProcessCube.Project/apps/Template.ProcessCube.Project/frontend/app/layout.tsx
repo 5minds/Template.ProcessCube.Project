@@ -17,13 +17,13 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className='flex flex-col laptop:flex-row  min-h-screen w-full'>
-        <div className='bg-lime-200 w-1/5'>
-          <nav className='text-2xl text-center flex flex-col gap-4 justify-around'>
+        <div className='bg-lime-200 laptop:w-1/5 w-full'>
+          <nav className='text-2xl text-center flex flex-col gap-4 justify-around w-full'>
             <Link className='p-4 bg-lime-200 hover:bg-lime-300 active:bg-lime-300 rounded-md drop-shadow-lg active:drop-shadow-none' href='/'>StartDialog</Link>
             <Link className='p-4 bg-lime-200 hover:bg-lime-300 active:bg-lime-300 rounded-md drop-shadow-lg active:drop-shadow-none' href='/server'>Server</Link>
           </nav>
         </div>
-        <div className='bg-gray-500 w-4/5'>
+        <div className='bg-gray-500 laptop:w-4/5 w-full'>
           {children}
         </div>
       </body>
