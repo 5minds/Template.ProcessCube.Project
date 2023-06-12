@@ -13,6 +13,7 @@ WORKDIR /
 COPY ../../analyzers.ruleset .
 
 WORKDIR /apps/Template.ProcessCube.Project
+COPY apps/Template.ProcessCube.Project/frontend/.next/static/media /wwwroot/static/fonts
 COPY apps/Template.ProcessCube.Project/frontend/.next/static/css/*.css ./wwwroot/static/css/main.css
 COPY apps/Template.ProcessCube.Project/Template.ProcessCube.Project.csproj .
 COPY apps/Template.ProcessCube.Project/Template.ProcessCube.Project.props .

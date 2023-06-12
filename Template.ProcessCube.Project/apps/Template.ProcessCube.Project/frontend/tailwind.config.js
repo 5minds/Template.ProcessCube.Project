@@ -19,9 +19,6 @@ module.exports = {
         '5mindsprim-1': '#0e283b',
         '5mindsprim-2': '#0e2f46',
       },
-      fontFamily: {
-        sans: ['Inter', 'sans-serif'],
-      },
       fontSize: {
         'heading-1': ['2.5rem', {
           lineHeight: '2.25rem',

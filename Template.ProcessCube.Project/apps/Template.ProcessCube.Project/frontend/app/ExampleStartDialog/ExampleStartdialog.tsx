@@ -4,8 +4,6 @@ import React from 'react';
 import { StartDialogProps } from '../DialogRenderer';
 
 const ExampleStartdialog = (props: StartDialogProps) => {
-  console.log(props.portalLocation);
-
   return (
     <>
       <div>ExampleStartdialog</div>
