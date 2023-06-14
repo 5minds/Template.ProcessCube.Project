@@ -27,7 +27,10 @@ module.exports = {
         }],
         'heading-2': '2rem',
         'heading-3': '1.5rem',
-      }
+      },
+      boxShadow: {
+        'bright': '0 20px 50px 20px red',
+      },
     },
   },
   plugins: [],

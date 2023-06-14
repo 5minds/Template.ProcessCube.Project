@@ -12,6 +12,13 @@ export default function Home() {
       <StartDialogRenderer
         config={config}
       />
+      <div className='w-full'>
+        <div className='flex flex-row w-full min-h-screen justify-center gap-24 mt-20'>
+          <div className='card h-56 w-32 rounded-lg bg-white outline outline-1 outline-black'>Card 1</div>
+          <div className='card h-56 w-32 rounded-lg bg-white outline outline-1 outline-black'>Card 2</div>
+          <div className='card h-56 w-32 rounded-lg bg-white outline outline-1 outline-black'>Card 3</div>
+        </div>
+      </div>
     </div>
   )
 }

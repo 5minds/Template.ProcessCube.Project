@@ -14,4 +14,12 @@
   html {
     font-family: 'Roboto', sans-serif;
   }
+
+  .card {
+    @apply shadow-red-400 shadow-bright hover:-translate-y-10 hover:transition hover:duration-700 active:font-bold text-center text-3xl active:bg-green-400 hover:ease-in-out hover:delay-0;
+  }
+
+  .card:not(:hover) {
+    @apply shadow-2xl blur-sm translate-y-10 transition duration-700 ease-in-out delay-0;
+  }
 }
