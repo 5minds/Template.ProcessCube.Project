@@ -1,10 +1,12 @@
+'use client'
+
 import React from 'react';
 
 import { Identity } from '@atlas-engine/atlas_engine_client';
-import { StartDialogDisplayedCallback, StartDialogService } from '@atlas-engine-contrib/atlas-ui_sdk';
+import { PortalLocation, StartDialogDisplayedCallback, StartDialogService } from '@atlas-engine-contrib/atlas-ui_sdk';
 
 import { Config } from '../config';
-import { ExampleStartDialog } from '../ExampleStartDialog';
+import ExampleStartdialog from '../ExampleStartDialog/ExampleStartdialog';
 
 
 export type DialogComponentDict = {
@@ -19,6 +21,7 @@ export type StartDialogProps = {
   openStartDialog: (startDialogId: string) => void;
   startProcess: (processModelId: string, payload?: unknown, startEventId?: string) => void;
   config: Config | undefined;
+  portalLocation: PortalLocation | undefined;
 };
 
 export type StartDialogRendererProps = {
@@ -61,7 +64,7 @@ class StartDialogRenderer extends React.Component<StartDialogRendererProps, Star
   }
 
   private components: StartDialogComponentDict = {
-    ExampleStartDialog: ExampleStartDialog,
+    ExampleStartDialog: ExampleStartdialog,
   };
 
   public componentDidMount(): void {
@@ -101,6 +104,7 @@ class StartDialogRenderer extends React.Component<StartDialogRendererProps, Star
 
     const props: StartDialogProps = {
       language: 'de',
+      portalLocation: this.startDialogService?.getLocation(),
       closeStartDialog: (): void => this.startDialogService?.closeStartDialog(),
       openStartDialog: (startDialogId: string): void => this.startDialogService?.openStartDialog(startDialogId),
       identity: this.state.targetIdentity,

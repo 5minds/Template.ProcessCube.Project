@@ -13,7 +13,7 @@ services:
       CONFIG_PATH: /etc/engine/config/config.json
 
   portal:
-    image: 5minds/portal:3.9.0-beta.1
+    image: 5minds/portal:3.12.0-beta.1
     volumes:
       - ./.processcube/portal/theme.css:/etc/portal/config/theme.css:ro
       - ./.processcube/portal/config.json:/etc/portal/config/config.json:ro
@@ -29,7 +29,7 @@ services:
       context: ./
       dockerfile: apps/Template.ProcessCube.Project/Dockerfile
     volumes:
-      - ./apps/Template.ProcessCube.Project/frontend/src/config/config.json:/apps/Template.ProcessCube.Project/wwwroot/config.json
+      - ./apps/Template.ProcessCube.Project/frontend/app/config/config.json:/apps/Template.ProcessCube.Project/wwwroot/config.json
       - ./apps/Template.ProcessCube.Project/Properties/:/apps/Template.ProcessCube.Project/Properties/
       - ./apps/Template.ProcessCube.Project/appsettings.json:/apps/Template.ProcessCube.Project/appsettings.json
       - ./apps/Template.ProcessCube.Project/appsettings.Development.json:/apps/Template.ProcessCube.Project/appsettings.Development.json
@@ -44,13 +44,13 @@ services:
     image: source_name_lower_docker
     volumes:
       - ./apps/Template.ProcessCube.Project/frontend/public/:/apps/Template.ProcessCube.Project/frontend/public/
-      - ./apps/Template.ProcessCube.Project/frontend/src/:/apps/Template.ProcessCube.Project/frontend/src/
+      - ./apps/Template.ProcessCube.Project/frontend/app/:/apps/Template.ProcessCube.Project/frontend/app/
       - ./apps/Template.ProcessCube.Project/frontend/.env:/apps/Template.ProcessCube.Project/frontend/.env
       - ./apps/Template.ProcessCube.Project/frontend/.env.development:/apps/Template.ProcessCube.Project/frontend/.env.development
       - ./apps/Template.ProcessCube.Project/frontend/aspnetcore-https.js:/apps/Template.ProcessCube.Project/frontend/aspnetcore-https.js
       - ./apps/Template.ProcessCube.Project/frontend/aspnetcore-react.js:/apps/Template.ProcessCube.Project/frontend/aspnetcore-react.js
       - ./apps/Template.ProcessCube.Project/frontend/tsconfig.json:/apps/Template.ProcessCube.Project/frontend/tsconfig.json
     working_dir: /apps/Template.ProcessCube.Project/frontend/
-    command: npm start
+    command: npm run dev
     ports:
       - 3000:3000
