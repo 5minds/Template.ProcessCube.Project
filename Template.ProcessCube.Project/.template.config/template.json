@@ -24,12 +24,6 @@
       "valueSource": "sourceNameLower",
       "valueTransform": "replaceDotWithUnderscore",
       "replaces": "source_name_lower_docker"
-    },
-    "add-ui-tests": {
-      "type": "parameter",
-      "dataType": "bool",
-      "defaultValue": "false",
-      "description": "Add UI tests to the project"
     }
   },
   "forms": {
@@ -58,31 +52,26 @@
     "type": "solution",
     "language": "C#"
   },
-  "sources": [
-    {
-      "modifiers": [
-        {
-          "condition": "!(add-ui-tests)",
-          "exclude": [
-            "integration-tests/**/*",
-            "docker-compose.tests.yml",
-            "apps/Template.ProcessCube.Project/Template.ProcessCube.Project.ui-tests.targets"
-          ]
-        }
-      ]
-    }
-  ],
   "SpecialCustomOperations": {
     "**/*.md": {
       "operations": [
         {
           "type": "conditional",
           "configuration": {
-            "if": ["---#if"],
-            "else": ["---#else"],
-            "elseif": ["---#elseif", "---#elif"],
-            "endif": ["---#endif"],
-            "trim" : "true",
+            "if": [
+              "---#if"
+            ],
+            "else": [
+              "---#else"
+            ],
+            "elseif": [
+              "---#elseif",
+              "---#elif"
+            ],
+            "endif": [
+              "---#endif"
+            ],
+            "trim": "true",
             "wholeLine": "true"
           }
         }
