@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <PackageType>Template</PackageType>
-    <PackageVersion>2.3.2</PackageVersion>
+    <PackageVersion>2.3.3</PackageVersion>
     <PackageId>Template.ProcessCube.Project</PackageId>
     <PackageLicenseFile>LICENSE.txt</PackageLicenseFile>
     <Title>Project Template</Title>

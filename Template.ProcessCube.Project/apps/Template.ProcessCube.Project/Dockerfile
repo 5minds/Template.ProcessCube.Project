@@ -14,5 +14,4 @@ COPY ../../analyzers.ruleset .
 
 WORKDIR /apps/Template.ProcessCube.Project
 COPY apps/Template.ProcessCube.Project/Template.ProcessCube.Project.csproj .
-COPY apps/Template.ProcessCube.Project/Template.ProcessCube.Project.props .
 RUN dotnet restore
