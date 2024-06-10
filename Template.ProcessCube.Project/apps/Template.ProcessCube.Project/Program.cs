@@ -1,7 +1,5 @@
-using AtlasEngine;
-using AtlasEngine.ApiClient;
-
-using Template.ProcessCube.Project.Worker.Example;
+using ProcessCube.Engine;
+using ProcessCube.Engine.ApiClient;
 
 var builder = WebApplication.CreateBuilder(args);
 
