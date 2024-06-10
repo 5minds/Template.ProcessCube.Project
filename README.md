@@ -79,18 +79,22 @@ Damit das Template relativ schmerzlos vor einem Release getestet werden kann, si
 
     Wenn Sie sich schon im Ordner befinden, in dem die Anwendung liegen soll, können Sie die `-o` Option durch die `-n` Option austauschen. Das verhindert, dass die Anwendung in einen Ordner gelegt wird, der zusätzlich im aktuellen Verzeichnis generiert wird.
 
-    **Optionen**:
-    | Name                 | Description                              | Type  | Default |
-    |----------------------|------------------------------------------|-------|---------|
-    | -aut, --add-ui-tests | Add UI tests to the project              | bool  | false   |
-
 3. Anwendung starten:
 
-    Zu `My.Cool.Tutorial` navigieren.
+    Zu `My.Cool.Tutorial/apps/My.Cool.Tutorial/frontend` navigieren.
 
     ```zsh
-    dotnet msbuild -t:Start
+    npm i
     ```
+    Danach nach `My.Cool.Tutorial` zurück navigieren. Um das Image zu builden und zu starten:
+   ```bash
+   docker compose up
+   ```
+   Um nur das Image zu builden ohne die Anwendung zu starten:
+
+   ```bash
+   docker compose build
+   ```
 
 Standardmäßig ist das Portal dann unter <http://localhost:8082/> zu erreichen. Wenn Sie einen anderen Portal-Port angeben muss dieser im angegeben Link ausgetauscht werden.
 
