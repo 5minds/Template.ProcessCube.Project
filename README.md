@@ -50,20 +50,8 @@ heruntergeladen werden kann.
 
 ## Template installieren
 
-Es gibt 2 Varianten das Template zu installieren.
-Die 1. Variante ist für die Standardnutzung gedacht.
-Damit das Template relativ schmerzlos vor einem Release getestet werden kann, sind im der Makefile entsprechende Befehle definiert.
-
-1. NuGet registry:
-
     ```zsh
     dotnet new -i Template.ProcessCube.Project
-    ```
-
-2. Repository:
-
-    ```zsh
-    dotnet msbuild -t:InstallTemplate
     ```
 
 ## Template anwenden

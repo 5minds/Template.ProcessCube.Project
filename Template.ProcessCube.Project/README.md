@@ -19,43 +19,13 @@ heruntergeladen werden kann.
 
 Dieser Abschnitt zeigt die Grundlegenden Befehle, die zum Starten des Projekts notwendig sind.
 
-### Basic Build
-
-```zsh
-dotnet build
-# bzw:
-dotnet build apps/Template.ProcessCube.Project
-```
-
 ### Build
 
-Folgender Befehl:
-
-- Baut das apps/Template.ProcessCube.Project Projekt
-- Installiert die NPM-Pakete
-- Baut das Frontend
-- Baut/pulled die benötigten Docker-Images
-
-```zsh
-dotnet msbuild -t:Setup
-```
+Das builden funktioniert mit dem Befehl `docker compose build`.
 
 ### Start
 
-Zum Starten des Projekts kann `docker compose up` aufgerufen werden, **nachdem** das `Setup` erfolgreich ausgeführt wurde.
-Zur Vereinheitlichung und Vereinfachung wird das Projekt gestartet mit:
-
-```zsh
-dotnet msbuild -t:Up
-```
-
-Wenn `Setup` und `Up` nacheinander ausgeführt werden sollen:
-
-```zsh
-dotnet msbuild -t:Start
-```
-
-Daraufhin wird der Docker Container zusammengebaut und gestartet.
+Zum Starten des Projekts kann `docker compose up` aufgerufen werden.
 
 ### Aufräumen
 
