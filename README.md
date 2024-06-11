@@ -50,9 +50,9 @@ heruntergeladen werden kann.
 
 ## Template installieren
 
-    ```zsh
-    dotnet new -i Template.ProcessCube.Project
-    ```
+  ```zsh
+  dotnet new -i Template.ProcessCube.Project
+  ```
 
 ## Template anwenden
 
