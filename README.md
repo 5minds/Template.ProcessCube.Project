@@ -19,9 +19,9 @@ Folgend werden Voraussetzungen, Installation und Anwendung des Templates erläut
 
 <https://www.docker.com/get-started>
 
-### .NET 6.0
+### .NET 8.0
 
-<https://dotnet.microsoft.com/en-us/download/dotnet/6.0>
+<https://dotnet.microsoft.com/en-us/download/dotnet/8.0>
 
 ### Node.js
 
@@ -34,50 +34,53 @@ heruntergeladen werden kann.
 
 2. **NuGet-Source hinzufügen**
 
-    `USERNAME` muss durch den GitHub Nutzernamen des Accounts ersetzt werden, mit welchem im letzten Schritt der PAT generiert wurde.
+   `USERNAME` muss durch den GitHub Nutzernamen des Accounts ersetzt werden, mit welchem im letzten Schritt der PAT generiert wurde.
 
-    `PAT` muss dementsprechend durch den zugehörigen GitHub-PAT ersetzt werden.
+   `PAT` muss dementsprechend durch den zugehörigen GitHub-PAT ersetzt werden.
 
-    ```zsh
-    dotnet nuget add source --username USERNAME --password PAT --store-password-in-clear-text --name 5minds "https://nuget.pkg.github.com/5minds/index.json"
-    ```
+   ```zsh
+   dotnet nuget add source --username USERNAME --password PAT --store-password-in-clear-text --name 5minds "https://nuget.pkg.github.com/5minds/index.json"
+   ```
 
-    Output:
+   Output:
 
-    ```text
-    Package source with Name: 5minds added successfully.
-    ```
+   ```text
+   Package source with Name: 5minds added successfully.
+   ```
 
 ## Template installieren
 
-  ```zsh
-  dotnet new -i Template.ProcessCube.Project
-  ```
+```zsh
+dotnet new -i Template.ProcessCube.Project
+```
 
 ## Template anwenden
 
 1. In einen Ordner der Wahl navigieren, wo die Anwendung generiert werden soll.
 2. Eine neue Anwendung generieren
 
-    ```zsh
-    dotnet new processcubeproject -o "My.Cool.Tutorial"
-    ```
+   ```zsh
+   dotnet new processcubeproject -o "My.Cool.Tutorial"
+   ```
 
-    `My.Cool.Tutorial` ist hier der Beispielname des Projekts.
+   `My.Cool.Tutorial` ist hier der Beispielname des Projekts.
 
-    Wenn Sie sich schon im Ordner befinden, in dem die Anwendung liegen soll, können Sie die `-o` Option durch die `-n` Option austauschen. Das verhindert, dass die Anwendung in einen Ordner gelegt wird, der zusätzlich im aktuellen Verzeichnis generiert wird.
+   Wenn Sie sich schon im Ordner befinden, in dem die Anwendung liegen soll, können Sie die `-o` Option durch die `-n` Option austauschen. Das verhindert, dass die Anwendung in einen Ordner gelegt wird, der zusätzlich im aktuellen Verzeichnis generiert wird.
 
 3. Anwendung starten:
 
-    Zu `My.Cool.Tutorial/apps/My.Cool.Tutorial/frontend` navigieren.
+   Zu `My.Cool.Tutorial/apps/My.Cool.Tutorial/frontend` navigieren.
 
-    ```zsh
-    npm i
-    ```
-    Danach nach `My.Cool.Tutorial` zurück navigieren. Um das Image zu builden und zu starten:
+   ```zsh
+   npm i
+   ```
+
+   Danach nach `My.Cool.Tutorial` zurück navigieren. Um das Image zu builden und zu starten:
+
    ```bash
    docker compose up
    ```
+
    Um nur das Image zu builden ohne die Anwendung zu starten:
 
    ```bash

@@ -6,9 +6,9 @@
 
 <https://www.docker.com/get-started>
 
-### .NET 6.0
+### .NET 8.0
 
-<https://dotnet.microsoft.com/en-us/download/dotnet/6.0>
+<https://dotnet.microsoft.com/en-us/download/dotnet/8.0>
 
 ### Node.js
 
@@ -86,7 +86,7 @@ dotnet msbuild -t:TestClean
 ## UI-Tests
 
 Wenn du die manuelle Integration des Robot Frameworks noch einmal genauer erklärt haben möchtest,
-schau dir den Artikel [Getting Started - Robot Framework](https://processcube-kurs.dev.5minds.cloud/docs/advanced/09_getting_started_robot_framework) im ProcessCube Kurs an.
+schau dir den Artikel [Getting Started - Robot Framework](https://processcube.io/course/expert/01_robot_framework) im ProcessCube Kurs an.
 
-Wenn du jetzt wissen willst, wie man Tests schreibt, schau dir die Master Class zum Thema [Robot Framework](https://processcube-kurs.dev.5minds.cloud/docs/masterClass/robot_framework) an.
+Wenn du jetzt wissen willst, wie man Tests schreibt, schau dir die Master Class zum Thema [Robot Framework](https://processcube.io/course/expert/01_robot_framework#write-test) an.
 ---#endif
