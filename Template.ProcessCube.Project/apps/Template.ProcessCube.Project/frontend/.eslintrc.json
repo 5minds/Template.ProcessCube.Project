@@ -7,10 +7,7 @@
     "plugin:react/jsx-runtime",
     "react-app"
   ],
-  "plugins": [
-    "import-newlines",
-    "react"
-  ],
+  "plugins": ["import-newlines", "react"],
   "env": {
     "browser": true
   },
@@ -26,21 +23,30 @@
     ],
     "no-null/no-null": "off",
     "arrow-body-style": ["error", "as-needed"],
-    "@typescript-eslint/consistent-type-assertions": ["error", {
-      "assertionStyle": "as"
-    }],
+    "@typescript-eslint/consistent-type-assertions": [
+      "error",
+      {
+        "assertionStyle": "as"
+      }
+    ],
     "comma-dangle": ["error", "always-multiline"],
-    "import-newlines/enforce": ["error",{
-      "items": 3
-    }],
+    "import-newlines/enforce": [
+      "error",
+      {
+        "items": 3
+      }
+    ],
     "object-curly-spacing": ["error", "always"],
-    "object-property-newline": ["error", { "allowAllPropertiesOnSameLine": true }],
+    "object-property-newline": [
+      "error",
+      { "allowAllPropertiesOnSameLine": true }
+    ],
     "multiline-ternary": ["error", "always-multiline"],
     "key-spacing": ["error", { "beforeColon": false }],
     "block-spacing": "error",
     "semi-spacing": "error",
     "semi": ["error", "always"],
-    "indent": ["error", 2, {"offsetTernaryExpressions": true}],
+    "indent": ["error", 2, { "offsetTernaryExpressions": true }],
     "brace-style": ["error", "1tbs"],
     "no-multi-spaces": ["error"],
     "array-bracket-spacing": ["error", "never"],
@@ -48,8 +54,8 @@
     "computed-property-spacing": ["error", "never"],
     "quote-props": ["error", "consistent-as-needed"],
     "space-in-parens": ["error", "never"],
-    "jsx-quotes": ["error", "prefer-single"],
-    "quotes": ["error", "single"],
+    "jsx-quotes": ["off"],
+    "quotes": ["error"],
     "prefer-template": "error",
     "keyword-spacing": "error",
     "space-infix-ops": ["error"],
@@ -57,36 +63,48 @@
     "react/jsx-closing-bracket-location": ["error"],
     "react/jsx-closing-tag-location": "error",
     "react/jsx-equals-spacing": ["error", "never"],
-    "react/jsx-tag-spacing": ["error", {
-      "closingSlash": "never",
-      "beforeSelfClosing": "always",
-      "afterOpening": "never",
-      "beforeClosing": "never"
-    }],
+    "react/jsx-tag-spacing": [
+      "error",
+      {
+        "closingSlash": "never",
+        "beforeSelfClosing": "always",
+        "afterOpening": "never",
+        "beforeClosing": "never"
+      }
+    ],
     "react/jsx-indent": ["error", 2],
     "react/jsx-indent-props": ["error", 2],
-    "react/jsx-wrap-multilines": ["error", {
-      "declaration": "parens-new-line",
-      "assignment": "parens-new-line",
-      "return": "parens-new-line",
-      "arrow": "parens-new-line",
-      "condition": "ignore",
-      "logical": "ignore",
-      "prop": "ignore"
-    }],
-    "react/jsx-max-props-per-line": ["error", {
-      "maximum": 1,
-      "when": "multiline"
-    }],
+    "react/jsx-wrap-multilines": [
+      "error",
+      {
+        "declaration": "parens-new-line",
+        "assignment": "parens-new-line",
+        "return": "parens-new-line",
+        "arrow": "parens-new-line",
+        "condition": "ignore",
+        "logical": "ignore",
+        "prop": "ignore"
+      }
+    ],
+    "react/jsx-max-props-per-line": [
+      "error",
+      {
+        "maximum": 1,
+        "when": "multiline"
+      }
+    ],
     "react/self-closing-comp": "error",
     "react/prop-types": "off",
-    "@typescript-eslint/explicit-function-return-type": ["error", {
-      "allowExpressions": true,
-      "allowTypedFunctionExpressions": true,
-      "allowHigherOrderFunctions": true,
-      "allowDirectConstAssertionInArrowFunctions": false,
-      "allowConciseArrowFunctionExpressionsStartingWithVoid": false
-    }],
+    "@typescript-eslint/explicit-function-return-type": [
+      "error",
+      {
+        "allowExpressions": true,
+        "allowTypedFunctionExpressions": true,
+        "allowHigherOrderFunctions": true,
+        "allowDirectConstAssertionInArrowFunctions": false,
+        "allowConciseArrowFunctionExpressionsStartingWithVoid": false
+      }
+    ],
     "@typescript-eslint/explicit-module-boundary-types": "off",
     "@typescript-eslint/no-empty-function": "off",
     "@typescript-eslint/no-explicit-any": "off",
@@ -130,9 +148,7 @@
         "format": null
       },
       {
-        "selector": [
-          "objectLiteralProperty"
-        ],
+        "selector": ["objectLiteralProperty"],
         "format": ["PascalCase", "camelCase"]
       }
     ]
@@ -142,7 +158,7 @@
       "version": "detect"
     },
     "import/resolver": {
-      "node": { "extensions": [ ".ts", ".tsx" ] }
+      "node": { "extensions": [".ts", ".tsx"] }
     }
   }
 }
