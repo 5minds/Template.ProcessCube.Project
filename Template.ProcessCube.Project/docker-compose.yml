@@ -1,7 +1,7 @@
 version: "3.5"
 services:
   engine:
-    image: 5minds/processcube_engine:16.0.10
+    image: 5minds/processcube_engine:17.0.1
     ports:
       - 8000:8000
     volumes:
@@ -13,7 +13,7 @@ services:
       CONFIG_PATH: /etc/engine/config/config.json
 
   portal:
-    image: 5minds/portal:4.0.2
+    image: 5minds/portal:4.1.0
     volumes:
       - ./.processcube/portal/theme.css:/etc/portal/config/theme.css:ro
       - ./.processcube/portal/config.json:/etc/portal/config/config.json:ro
