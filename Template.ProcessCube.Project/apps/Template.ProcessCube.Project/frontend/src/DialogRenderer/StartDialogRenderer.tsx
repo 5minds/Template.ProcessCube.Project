@@ -1,41 +1,52 @@
-import React from 'react';
+import React from "react";
 
-import { Identity } from '@atlas-engine/atlas_engine_client';
-import { StartDialogDisplayedCallback, StartDialogService } from '@atlas-engine-contrib/atlas-ui_sdk';
+import { Identity } from "@5minds/processcube_engine_client";
+import {
+  StartDialogDisplayedCallback,
+  StartDialogService,
+} from "@atlas-engine-contrib/atlas-ui_sdk";
 
-import { Config } from '../config';
-import { ExampleStartDialog } from '../ExampleStartDialog';
-
+import { Config } from "../config";
+import { ExampleStartDialog } from "../ExampleStartDialog";
 
 export type DialogComponentDict = {
   [id: string]: string;
-}
+};
 
 export type StartDialogProps = {
-  language: string,
+  language: string;
   identity: Identity;
   startDialogConfiguration: StartDialogConfiguration;
   closeStartDialog: () => void;
   openStartDialog: (startDialogId: string) => void;
-  startProcess: (processModelId: string, payload?: unknown, startEventId?: string) => void;
+  startProcess: (
+    processModelId: string,
+    payload?: unknown,
+    startEventId?: string
+  ) => void;
   config: Config | undefined;
 };
 
 export type StartDialogRendererProps = {
   components?: StartDialogComponentDict;
   config?: Config;
-}
+};
 
 export type StartDialogComponentDict = {
-  [startDialogId: string]: React.ComponentClass<StartDialogProps> | React.FunctionComponent<StartDialogProps>;
-}
+  [startDialogId: string]:
+    | React.ComponentClass<StartDialogProps>
+    | React.FunctionComponent<StartDialogProps>;
+};
 
 export type StartDialogRendererState = {
-  targetComponent: React.ComponentClass<StartDialogProps> | React.FunctionComponent<StartDialogProps> | null;
+  targetComponent:
+    | React.ComponentClass<StartDialogProps>
+    | React.FunctionComponent<StartDialogProps>
+    | null;
   targetStartDialogConfiguration: StartDialogConfiguration | null;
   targetIdentity: Identity | null;
   currentLanguage: string;
-}
+};
 
 export type StartDialogConfiguration = {
   id: string;
@@ -43,10 +54,12 @@ export type StartDialogConfiguration = {
   body: string;
   url: string;
   startButtonTitle: string;
-}
+};
 
-class StartDialogRenderer extends React.Component<StartDialogRendererProps, StartDialogRendererState> {
-
+class StartDialogRenderer extends React.Component<
+  StartDialogRendererProps,
+  StartDialogRendererState
+> {
   private startDialogService: StartDialogService | null = null;
 
   constructor(props: StartDialogRendererProps) {
@@ -56,7 +69,7 @@ class StartDialogRenderer extends React.Component<StartDialogRendererProps, Star
       targetComponent: null,
       targetIdentity: null,
       targetStartDialogConfiguration: null,
-      currentLanguage: 'de',
+      currentLanguage: "de",
     };
   }
 
@@ -66,7 +79,9 @@ class StartDialogRenderer extends React.Component<StartDialogRendererProps, Star
 
   public componentDidMount(): void {
     this.startDialogService = new StartDialogService();
-    this.startDialogService.onStartDialogDisplayed(this.displayStartDialog as StartDialogDisplayedCallback);
+    this.startDialogService.onStartDialogDisplayed(
+      this.displayStartDialog as StartDialogDisplayedCallback
+    );
 
     this.components = {
       ...this.components,
@@ -81,10 +96,15 @@ class StartDialogRenderer extends React.Component<StartDialogRendererProps, Star
     this.startDialogService.destroy();
   }
 
-  private displayStartDialog = (config: StartDialogConfiguration, identity: Identity): void => {
+  private displayStartDialog = (
+    config: StartDialogConfiguration,
+    identity: Identity
+  ): void => {
     const component = this.components[config.id];
     if (!component) {
-      throw new Error(`No component found for usertask ${JSON.stringify(config)}`);
+      throw new Error(
+        `No component found for usertask ${JSON.stringify(config)}`
+      );
     }
 
     this.setState({
@@ -95,27 +115,38 @@ class StartDialogRenderer extends React.Component<StartDialogRendererProps, Star
   };
 
   public render(): JSX.Element | null {
-    if (!this.state.targetComponent || !this.state.targetStartDialogConfiguration || !this.state.targetIdentity) {
+    if (
+      !this.state.targetComponent ||
+      !this.state.targetStartDialogConfiguration ||
+      !this.state.targetIdentity
+    ) {
       return null;
     }
 
     const props: StartDialogProps = {
-      language: 'de',
+      language: "de",
       closeStartDialog: (): void => this.startDialogService?.closeStartDialog(),
-      openStartDialog: (startDialogId: string): void => this.startDialogService?.openStartDialog(startDialogId),
+      openStartDialog: (startDialogId: string): void =>
+        this.startDialogService?.openStartDialog(startDialogId),
       identity: this.state.targetIdentity,
       startDialogConfiguration: this.state.targetStartDialogConfiguration,
       startProcess: (processModelId, payload?, startEventId?): void => {
-        this.startDialogService?.startProcess(processModelId, payload, startEventId);
+        this.startDialogService?.startProcess(
+          processModelId,
+          payload,
+          startEventId
+        );
       },
       config: this.props.config,
     };
 
-    const componentInstance = React.createElement(this.state.targetComponent, props);
+    const componentInstance = React.createElement(
+      this.state.targetComponent,
+      props
+    );
 
     return componentInstance;
   }
-
 }
 
 export default StartDialogRenderer;
