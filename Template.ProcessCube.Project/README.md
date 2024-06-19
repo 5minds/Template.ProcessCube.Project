@@ -21,7 +21,7 @@ Dieser Abschnitt zeigt die Grundlegenden Befehle, die zum Starten des Projekts n
 
 ### Build
 
-Das builden funktioniert mit dem Befehl `docker compose build`.
+Das Builden funktioniert mit dem Befehl `docker compose build`.
 
 ### Start
 
