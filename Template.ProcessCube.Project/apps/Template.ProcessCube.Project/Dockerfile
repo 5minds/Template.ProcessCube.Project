@@ -1,4 +1,4 @@
-FROM mcr.microsoft.com/dotnet/sdk:6..0
+FROM mcr.microsoft.com/dotnet/sdk:6.0
 
 RUN apt-get -q update && \
   curl -fsSL https://deb.nodesource.com/setup_16.x | bash - && \
