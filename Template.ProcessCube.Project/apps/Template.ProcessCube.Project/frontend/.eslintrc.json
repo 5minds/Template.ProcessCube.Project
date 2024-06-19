@@ -29,7 +29,7 @@
         "assertionStyle": "as"
       }
     ],
-    "comma-dangle": ["error", "always-multiline"],
+    "comma-dangle": ["off"],
     "import-newlines/enforce": [
       "error",
       {
@@ -55,7 +55,7 @@
     "quote-props": ["error", "consistent-as-needed"],
     "space-in-parens": ["error", "never"],
     "jsx-quotes": ["off"],
-    "quotes": ["error"],
+    "quotes": ["off"],
     "prefer-template": "error",
     "keyword-spacing": "error",
     "space-infix-ops": ["error"],
