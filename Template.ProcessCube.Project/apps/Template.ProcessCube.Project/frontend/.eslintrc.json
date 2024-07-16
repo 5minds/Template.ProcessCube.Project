@@ -30,12 +30,7 @@
       }
     ],
     "comma-dangle": ["off"],
-    "import-newlines/enforce": [
-      "error",
-      {
-        "items": 3
-      }
-    ],
+    "import-newlines/enforce": ["off"],
     "object-curly-spacing": ["error", "always"],
     "object-property-newline": [
       "error",
