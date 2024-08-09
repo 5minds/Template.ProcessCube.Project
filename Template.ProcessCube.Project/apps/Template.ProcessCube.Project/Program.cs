@@ -1,7 +1,5 @@
-using AtlasEngine;
-using AtlasEngine.ApiClient;
-
-using Template.ProcessCube.Project.Worker.Example;
+using ProcessCube.Engine;
+using ProcessCube.Engine.ApiClient;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -10,7 +8,7 @@ builder.Services.AddSpaYarp();
 // Add services to the container.
 builder.Host.UseExternalTaskWorkers();
 builder.Services.AddControllers();
-builder.Services.Configure<ApiClientSettings>(builder.Configuration.GetSection("AtlasEngine"));
+builder.Services.Configure<ApiClientSettings>(builder.Configuration.GetSection("ProcessCubeEngine"));
 builder.Services.AddScoped<ExampleHandler>();
 
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle

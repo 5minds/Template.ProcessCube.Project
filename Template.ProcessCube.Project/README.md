@@ -19,43 +19,13 @@ heruntergeladen werden kann.
 
 Dieser Abschnitt zeigt die Grundlegenden Befehle, die zum Starten des Projekts notwendig sind.
 
-### Basic Build
-
-```zsh
-dotnet build
-# bzw:
-dotnet build apps/Template.ProcessCube.Project
-```
-
 ### Build
 
-Folgender Befehl:
-
-- Baut das apps/Template.ProcessCube.Project Projekt
-- Installiert die NPM-Pakete
-- Baut das Frontend
-- Baut/pulled die benötigten Docker-Images
-
-```zsh
-dotnet msbuild -t:Setup
-```
+Das Builden funktioniert mit dem Befehl `docker compose build`.
 
 ### Start
 
-Zum Starten des Projekts kann `docker compose up` aufgerufen werden, **nachdem** das `Setup` erfolgreich ausgeführt wurde.
-Zur Vereinheitlichung und Vereinfachung wird das Projekt gestartet mit:
-
-```zsh
-dotnet msbuild -t:Up
-```
-
-Wenn `Setup` und `Up` nacheinander ausgeführt werden sollen:
-
-```zsh
-dotnet msbuild -t:Start
-```
-
-Daraufhin wird der Docker Container zusammengebaut und gestartet.
+Zum Starten des Projekts kann `docker compose up` aufgerufen werden.
 
 ### Aufräumen
 
@@ -116,7 +86,7 @@ dotnet msbuild -t:TestClean
 ## UI-Tests
 
 Wenn du die manuelle Integration des Robot Frameworks noch einmal genauer erklärt haben möchtest,
-schau dir den Artikel [Getting Started - Robot Framework](https://processcube-kurs.dev.5minds.cloud/docs/advanced/09_getting_started_robot_framework) im ProcessCube Kurs an.
+schau dir den Artikel [Getting Started - Robot Framework](https://processcube.io/course/expert/01_robot_framework) im ProcessCube Kurs an.
 
-Wenn du jetzt wissen willst, wie man Tests schreibt, schau dir die Master Class zum Thema [Robot Framework](https://processcube-kurs.dev.5minds.cloud/docs/masterClass/robot_framework) an.
+Wenn du jetzt wissen willst, wie man Tests schreibt, schau dir die Master Class zum Thema [Robot Framework](https://processcube.io/course/expert/01_robot_framework#write-test) an.
 ---#endif

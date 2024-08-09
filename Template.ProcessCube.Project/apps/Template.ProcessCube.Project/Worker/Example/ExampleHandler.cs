@@ -1,10 +1,11 @@
-namespace Template.ProcessCube.Project.Worker.Example;
+using Template.ProcessCube.Project.Worker.Example;
+
 
 using System.Threading;
 using System.Threading.Tasks;
 
-using AtlasEngine;
-using AtlasEngine.ExternalTasks;
+using ProcessCube.Engine;
+using ProcessCube.Engine.ExternalTasks;
 
 #pragma warning disable CS0618
 [ExternalTaskHandler("ExampleETW")]

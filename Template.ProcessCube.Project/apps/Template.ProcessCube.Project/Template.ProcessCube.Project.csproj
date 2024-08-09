@@ -15,10 +15,10 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="AspNetCore.SpaYarp" Version="1.1.0" />
-    <PackageReference Include="AtlasEngine.Client" Version="2.2.0" />
-    <PackageReference Include="AtlasEngine.Client.Extensions.Hosting" Version="2.2.0" />
-    <PackageReference Include="Swashbuckle.AspNetCore" Version="6.5.0" />
+    <PackageReference Include="AspNetCore.SpaYarp" Version="2.0.0" />
+    <PackageReference Include="ProcessCube.Engine.Client" Version="3.0.0" />
+    <PackageReference Include="ProcessCube.Engine.Client.Extensions.Hosting" Version="3.0.0" />
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="6.6.2" />
   </ItemGroup>
 
   <ItemGroup>
